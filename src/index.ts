@@ -113,16 +113,41 @@ export const hasPermissions = (action: GitHubActionSchema): boolean => {
     });
 };
 const secretGITHUB_TOKEN = /\${{\s*secrets.GITHUB_TOKEN\s*}}/;
-const hasSecretEnv = (content: GitHubActionSchema) => {
-    return Object.values(content.jobs ?? {}).some((job) => {
-        return job.steps.some((step) => {
-            return Object.values(step.env ?? {}).some((envValue) => {
-                return secretGITHUB_TOKEN.test(envValue);
-            });
+type EnvEntry = [envName: string, envValue: string];
+const getSecretEnvEntries = (content: GitHubActionSchema): EnvEntry[] => {
+    return Object.values(content.jobs ?? {}).flatMap((job) => {
+        return job.steps.flatMap((step) => {
+            if (!step.env) {
+                return [];
+            }
+            return Object.entries(step.env);
         });
     });
 };
-
+/**
+ * It define special pattern mapping env name and permissions
+ * @param envEntries
+ */
+const envToPermissions = (envEntries: EnvEntry[]): GhPermissions[] => {
+    return envEntries.flatMap((entry) => {
+        // npm special pattern
+        // NODE_AUTH_TOKEN: ${{ secret.GITHUB_TOKEN }}
+        if (entry[0] === "NODE_AUTH_TOKEN") {
+            return [
+                {
+                    contents: "read",
+                    packages: "write"
+                }
+            ];
+        }
+        return [];
+    });
+};
+const hasSecretEnv = (envEntries: EnvEntry[]) => {
+    return envEntries.some((envEntry) => {
+        return secretGITHUB_TOKEN.test(envEntry[1]);
+    });
+};
 export const computePermissions = async (
     content: GitHubActionSchema,
     options: UpdateGitHubActionsOptions
@@ -140,7 +165,10 @@ export const computePermissions = async (
         return options.defaultPermissions;
     }
     // if found usage for GITHUB_TOKEN in user script, return default permissions
-    if (hasSecretEnv(content)) {
+    // Exception: NODE_AUTH_TOKEN
+    const envEntries = getSecretEnvEntries(content);
+    const permissionsFromEnvs = envToPermissions(envEntries);
+    if (hasSecretEnv(envEntries) && permissionsFromEnvs.length !== envEntries.length) {
         if (options.verbose) {
             console.info(`found secrets.GITHUB_TOKEN usage, use ${options.defaultPermissions}`);
         }
@@ -150,7 +178,8 @@ export const computePermissions = async (
     const usedPermissions = knownPermissions.map(([name]) => {
         return Object.prototype.hasOwnProperty.call(definitions, name) && definitions[name]?.permissions;
     }) as GhPermissions[];
-    return mergePermissions(usedPermissions);
+    const allPermissions = [...usedPermissions, ...permissionsFromEnvs];
+    return mergePermissions(allPermissions);
 };
 /**
  * Update `permissions` on the yamlContent
