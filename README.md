@@ -15,6 +15,7 @@ Install with [npm](https://www.npmjs.com/):
 ## Add existing action's `permissions`
 
 This tool manage `permissions` in [actions.yml](./actions.yml).
+
 If you want to improve the `permissions` definitions, please edit [actions.yml](./actions.yml).
 
 1. Edit [actions.yml](./actions.yml)
