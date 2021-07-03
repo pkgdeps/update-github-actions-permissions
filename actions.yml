@@ -86,4 +86,5 @@ akhileshns/heroku-deploy:
   permissions:
     contents: read
 rtCamp/action-slack-notify:
+azu/action-package-version-to-git-tag:
 browser-actions/setup-firefox:
