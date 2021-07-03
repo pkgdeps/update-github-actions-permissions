@@ -6,6 +6,7 @@ actions/setup-dotnet:
 actions/setup-go:
 actions/setup-java:
 actions/setup-python:
+hecrj/setup-rust-action:
 ruby/setup-ruby:
 haskell/actions/setup:
 erlef/setup-beam:
