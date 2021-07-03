@@ -2,6 +2,12 @@ actions/checkout:
   permissions:
     contents: read
 actions/setup-node:
+actions/setup-dotnet:
+actions/setup-go:
+actions/setup-java:
+ruby/setup-ruby:
+haskell/actions/setup:
+erlef/setup-beam:
 actions/cache:
 amondnet/vercel-action:
   permissions:
@@ -29,6 +35,7 @@ peter-evans/create-pull-request:
 actions/upload-artifact:
 actions/labeler:
   permissions:
+    contents: read
     pull-requests: write
 dorny/paths-filter:
   permissions:
@@ -56,3 +63,4 @@ pkgdeps/git-tag-action:
 peaceiris/actions-gh-pages:
   permissions:
     contents: write
+peter-evans/repository-dispatch:

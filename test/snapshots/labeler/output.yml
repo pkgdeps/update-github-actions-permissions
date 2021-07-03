@@ -1,22 +1,13 @@
-name: test
-on: [push, pull_request]
+name: 'Pull Request Labeler'
+on:
+  - pull_request
 permissions:
   contents: read
+  pull-requests: write
 jobs:
-  test:
-    name: "Test on Node.js ${{ matrix.node-version }}"
-    runs-on: ubuntu-18.04
-    strategy:
-      matrix:
-        node-version: [12, 14, 16]
+  triage:
+    runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
-      - name: setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - uses: actions/labeler@v3
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: Install
-        run: yarn install
-      - name: Test
-        run: yarn test
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
