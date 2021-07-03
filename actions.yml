@@ -1,0 +1,51 @@
+actions/checkout:
+  permissions:
+    contents: read
+actions/setup-node:
+actions/cache:
+amondnet/vercel-action:
+  permissions:
+    contents: read
+aws-actions/configure-aws-credentials:
+actions/github-script:
+  permissions: write-all
+pascalgn/automerge-action:
+  permissions:
+    contents: write
+    pull-requests: write
+andresz1/size-limit-action:
+  permissions:
+    contents: read
+    pull-requests: write
+actions/stale:
+  permissions:
+    issues: write
+    pull-requests: write
+peter-evans/create-pull-request:
+  permissions:
+    contents: write
+    pull-requests: write
+# https://github.com/actions/upload-artifact/issues/197
+actions/upload-artifact:
+actions/labeler:
+  pull-requests: write
+dorny/paths-filter:
+  permissions:
+    contents: read
+google-github-actions/setup-gcloud:
+EndBug/add-and-commit:
+  permissions:
+    contents: write
+JS-DevTools/npm-publish:
+  permissions:
+    contents: read
+    packages: write
+necojackarc/auto-request-review:
+  permissions:
+    contents: read
+    issues: write
+    pull-requests: write
+reviewdog/action-eslint:
+  permissions:
+    contents: read
+    pull-requests: write
