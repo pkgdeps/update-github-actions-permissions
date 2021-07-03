@@ -81,3 +81,6 @@ GoogleCloudPlatform/github-actions/setup-gcloud:
 google-github-actions/setup-gcloud:
   permissions:
     contents: read
+akhileshns/heroku-deploy:
+  permissions:
+    contents: read
