@@ -23,6 +23,9 @@
   "main": "lib/index.js",
   "module": "module/index.js",
   "types": "lib/index.d.ts",
+  "bin": {
+    "update-github-actions-permissions": "bin/cmd.js"
+  },
   "directories": {
     "lib": "lib",
     "test": "test"

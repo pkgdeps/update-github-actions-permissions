@@ -25,10 +25,10 @@ or
       --defaultPermissions                [String] "write-all" or "read-all". Default: "write-all"
  
     Examples
-      $ update-github-actions-permissions .github/workflows/test.yml
+      $ npx @pkgdeps/update-github-actions-permissions .github/workflows/test.yml
       # multiple inputs
-      $ update-github-actions-permissions .github/workflows/test.yml .github/workflows/publish.yml 
-      $ update-github-actions-permissions .github/workflows/*.yml # in bash
+      $ npx @pkgdeps/pdate-github-actions-permissions .github/workflows/test.yml .github/workflows/publish.yml 
+      $ npx @pkgdeps/update-github-actions-permissions .github/workflows/*.yml # in bash
 
 ## Add existing action's `permissions`
 
