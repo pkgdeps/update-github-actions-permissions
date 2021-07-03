@@ -2,15 +2,33 @@
 
 Update GitHub Actions&#39;s `permissions` automatically.
 
+## Features
+
+- Detect using Actions and add `permissions` field to your action yaml file
+
 ## Install
 
 Install with [npm](https://www.npmjs.com/):
 
-    npm install @pkgdeps/update-github-actions-permissions
+    npm install @pkgdeps/update-github-actions-permissions --global
+
+or
+
+    npx @pkgdeps//update-github-actions-permissions .github/workflows/test.yaml
 
 ## Usage
 
-- [ ] Write usage instructions
+    Usage
+      $ npx @pkgdeps/update-github-actions-permissions [file|glob]
+ 
+    Options
+      --defaultPermissions                [String] "write-all" or "read-all". Default: "write-all"
+ 
+    Examples
+      $ update-github-actions-permissions .github/workflows/test.yml
+      # multiple inputs
+      $ update-github-actions-permissions .github/workflows/test.yml .github/workflows/publish.yml 
+      $ update-github-actions-permissions .github/workflows/*.yml # in bash
 
 ## Add existing action's `permissions`
 
