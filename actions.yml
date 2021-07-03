@@ -64,3 +64,9 @@ peaceiris/actions-gh-pages:
   permissions:
     contents: write
 peter-evans/repository-dispatch:
+helaili/jekyll-action:
+  permissions:
+    contents: write
+tsuyoshicho/action-textlint:
+  permissions:
+    contents: read
