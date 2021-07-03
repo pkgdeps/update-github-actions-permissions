@@ -40,6 +40,8 @@ If you want to improve the `permissions` definitions, please edit [actions.yml](
 1. Edit [actions.yml](./actions.yml)
 2. Submit a Pull Request
 
+:memo: `NODE_AUTH_TOKEN` is special pattern. If you found special env name, please create an issue.
+
 ## Changelog
 
 See [Releases page](https://github.com/pkgdeps/update-github-actions-permissions/releases).
