@@ -14,22 +14,22 @@ Install with [npm](https://www.npmjs.com/):
 
 or
 
-    npx @pkgdeps//update-github-actions-permissions .github/workflows/test.yaml
+    npx @pkgdeps/update-github-actions-permissions .github/workflows/test.yaml
 
 ## Usage
 
     Usage
-      $ npx @pkgdeps/update-github-actions-permissions [file|glob]
+      $ update-github-actions-permissions "[file|glob]"
  
     Options
       --defaultPermissions                [String] "write-all" or "read-all". Default: "write-all"
       --verbose                           [Boolean] If enable verbose, output debug info.
-
+ 
     Examples
-      $ npx @pkgdeps/update-github-actions-permissions .github/workflows/test.yml
+      $ update-github-actions-permissions ".github/workflows/test.yml"
       # multiple inputs
-      $ npx @pkgdeps/pdate-github-actions-permissions .github/workflows/test.yml .github/workflows/publish.yml 
-      $ npx @pkgdeps/update-github-actions-permissions .github/workflows/*.yml # in bash
+      $ update-github-actions-permissions ".github/workflows/test.yml" ".github/workflows/publish.yml" 
+      $ update-github-actions-permissions ".github/workflows/*.yml"
 
 ## Add existing action's `permissions`
 

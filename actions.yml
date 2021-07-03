@@ -40,7 +40,6 @@ actions/labeler:
 dorny/paths-filter:
   permissions:
     contents: read
-google-github-actions/setup-gcloud:
 EndBug/add-and-commit:
   permissions:
     contents: write
@@ -74,5 +73,11 @@ tsuyoshicho/action-textlint:
   permissions:
     contents: read
 microsoft/playwright-github-action:
+  permissions:
+    contents: read
+GoogleCloudPlatform/github-actions/setup-gcloud:
+  permissions:
+    contents: read
+google-github-actions/setup-gcloud:
   permissions:
     contents: read

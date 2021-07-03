@@ -1,21 +1,22 @@
 import meow from "meow";
 import * as fs from "fs/promises";
+import glloby from "globby";
 import { updateGitHubActions } from "./index";
 
 export const cli = meow(
     `
     Usage
-      $ update-github-actions-permissions [file|glob]
+      $ update-github-actions-permissions "[file|glob]"
  
     Options
       --defaultPermissions                [String] "write-all" or "read-all". Default: "write-all"
       --verbose                           [Boolean] If enable verbose, output debug info.
  
     Examples
-      $ update-github-actions-permissions .github/workflows/test.yml
+      $ update-github-actions-permissions ".github/workflows/test.yml"
       # multiple inputs
-      $ update-github-actions-permissions .github/workflows/test.yml .github/workflows/publish.yml 
-      $ update-github-actions-permissions .github/workflows/*.yml # in bash
+      $ update-github-actions-permissions ".github/workflows/test.yml" ".github/workflows/publish.yml" 
+      $ update-github-actions-permissions ".github/workflows/*.yml"
 `,
     {
         flags: {
@@ -43,7 +44,8 @@ export const run = async (
     input = cli.input,
     flags = cli.flags
 ): Promise<{ exitStatus: number; stdout: string | null; stderr: Error | null }> => {
-    for (const filePath of input) {
+    const expendedFilePaths = await glloby(input);
+    for (const filePath of expendedFilePaths) {
         const yamlContent = await fs.readFile(filePath, "utf-8");
         const updatedContent = await updateGitHubActions(yamlContent, {
             defaultPermissions: defaultPermissions(flags.defaultPermissions),
