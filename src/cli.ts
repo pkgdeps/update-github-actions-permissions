@@ -16,7 +16,7 @@ export const cli = meow(
       $ update-github-actions-permissions ".github/workflows/test.yml"
       # multiple inputs
       $ update-github-actions-permissions ".github/workflows/test.yml" ".github/workflows/publish.yml" 
-      $ update-github-actions-permissions ".github/workflows/*.yml"
+      $ update-github-actions-permissions ".github/workflows/*.{yml,yaml}"
 `,
     {
         flags: {
