@@ -1,4 +1,4 @@
-# @pkgdeps/pkgdeps-update-github-actions-permissions
+# @pkgdeps/update-github-actions-permissions
 
 Update GitHub Actions&#39;s `permissions` automatically.
 
@@ -6,7 +6,7 @@ Update GitHub Actions&#39;s `permissions` automatically.
 
 Install with [npm](https://www.npmjs.com/):
 
-    npm install @pkgdeps/pkgdeps-update-github-actions-permissions
+    npm install @pkgdeps/update-github-actions-permissions
 
 ## Usage
 
