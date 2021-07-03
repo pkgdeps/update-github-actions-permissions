@@ -28,6 +28,7 @@
     "test": "test"
   },
   "files": [
+    "actions.yml",
     "bin/",
     "lib/",
     "module/",
