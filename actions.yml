@@ -86,3 +86,4 @@ akhileshns/heroku-deploy:
   permissions:
     contents: read
 rtCamp/action-slack-notify:
+browser-actions/setup-firefox:
