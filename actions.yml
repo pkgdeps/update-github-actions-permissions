@@ -73,3 +73,6 @@ helaili/jekyll-action:
 tsuyoshicho/action-textlint:
   permissions:
     contents: read
+microsoft/playwright-github-action:
+  permissions:
+    contents: read
