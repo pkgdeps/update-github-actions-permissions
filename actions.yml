@@ -49,3 +49,6 @@ reviewdog/action-eslint:
   permissions:
     contents: read
     pull-requests: write
+pkgdeps/git-tag-action:
+  permissions:
+    contents: write
