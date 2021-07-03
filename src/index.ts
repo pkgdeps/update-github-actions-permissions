@@ -11,6 +11,7 @@ import { validateGitHubActions } from "./types.validator";
 import type { GhPermissionsDefinitions, GhPermissionValue, GhPermissions, GhPermissionTypes } from "./types";
 
 export type UpdateGitHubActionsOptions = {
+    verbose: boolean;
     // Apply the default permission when can not detect permissions
     defaultPermissions: "read-all" | "write-all";
     // TODO: implement force option
@@ -133,10 +134,16 @@ export const computePermissions = async (
     });
     // if found unknown actions, return default permissions
     if (knownPermissions.length !== usesActions.length) {
+        if (options.verbose) {
+            console.info(`found unknown actions, use ${options.defaultPermissions}`);
+        }
         return options.defaultPermissions;
     }
     // if found usage for GITHUB_TOKEN in user script, return default permissions
     if (hasSecretEnv(content)) {
+        if (options.verbose) {
+            console.info(`found secrets.GITHUB_TOKEN usage, use ${options.defaultPermissions}`);
+        }
         return options.defaultPermissions;
     }
     // if found usage of GITHUB_TOKEN, return default permissions

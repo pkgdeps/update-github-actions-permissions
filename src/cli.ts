@@ -9,6 +9,7 @@ export const cli = meow(
  
     Options
       --defaultPermissions                [String] "write-all" or "read-all". Default: "write-all"
+      --verbose                           [Boolean] If enable verbose, output debug info.
  
     Examples
       $ update-github-actions-permissions .github/workflows/test.yml
@@ -21,6 +22,10 @@ export const cli = meow(
             defaultPermissions: {
                 type: "string",
                 default: "write-all"
+            },
+            verbose: {
+                type: "boolean",
+                default: false
             }
         },
         autoHelp: true,
@@ -41,7 +46,8 @@ export const run = async (
     for (const filePath of input) {
         const yamlContent = await fs.readFile(filePath, "utf-8");
         const updatedContent = await updateGitHubActions(yamlContent, {
-            defaultPermissions: defaultPermissions(flags.defaultPermissions)
+            defaultPermissions: defaultPermissions(flags.defaultPermissions),
+            verbose: flags.verbose
         });
         if (yamlContent !== updatedContent) {
             await fs.writeFile(filePath, updatedContent, "utf-8");
