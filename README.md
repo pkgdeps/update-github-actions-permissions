@@ -23,7 +23,8 @@ or
  
     Options
       --defaultPermissions                [String] "write-all" or "read-all". Default: "write-all"
- 
+      --verbose                           [Boolean] If enable verbose, output debug info.
+
     Examples
       $ npx @pkgdeps/update-github-actions-permissions .github/workflows/test.yml
       # multiple inputs
