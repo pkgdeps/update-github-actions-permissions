@@ -1,0 +1,9 @@
+name: test
+on: [push, pull_request]
+jobs:
+  test:
+    name: "UNKNOWN"
+    runs-on: ubuntu-18.04
+    steps:
+      - name: unknown
+        uses: pkgdeps/kwnon@v2

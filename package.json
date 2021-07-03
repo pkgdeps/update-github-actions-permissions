@@ -1,5 +1,5 @@
 {
-  "name": "@pkgdeps/pkgdeps-update-github-actions-permissions",
+  "name": "@pkgdeps/update-github-actions-permissions",
   "version": "1.0.0",
   "description": "Update GitHub Actions's `permissions` automatically.",
   "keywords": [
@@ -9,20 +9,20 @@
     "cli",
     "actions"
   ],
-  "homepage": "https://github.com/azu/pkgdeps-update-github-actions-permissions",
+  "homepage": "https://github.com/pkgdeps/update-github-actions-permissions",
   "bugs": {
-    "url": "https://github.com/azu/pkgdeps-update-github-actions-permissions/issues"
+    "url": "https://github.com/pkgdeps/update-github-actions-permissions/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/azu/pkgdeps-update-github-actions-permissions.git"
+    "url": "https://github.com/pkgdeps/update-github-actions-permissions.git"
   },
   "license": "MIT",
   "author": "azu",
   "sideEffects": false,
-  "main": "lib/pkgdeps-update-github-actions-permissions.js",
-  "module": "module/pkgdeps-update-github-actions-permissions.js",
-  "types": "lib/pkgdeps-update-github-actions-permissions.d.ts",
+  "main": "lib/index.js",
+  "module": "module/index.js",
+  "types": "lib/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "test"
@@ -35,12 +35,15 @@
   ],
   "scripts": {
     "test": "mocha \"test/**/*.ts\"",
+    "updateSnapshot": "UPDATE_SNAPSHOT=1 npm test",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
     "prepare": "git config --local core.hooksPath .githooks",
     "build": "tsc -p . && tsc -p ./tsconfig.module.json",
     "watch": "tsc -p . --watch",
     "clean": "rimraf lib/ module/",
-    "prepublishOnly": "npm run clean && npm run build"
+    "prepublishOnly": "npm run clean && npm run build",
+    "validator-ts": "create-validator-ts src/types.ts",
+    "test:validator-ts": "create-validator-ts src/types.ts --check"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css}": [
@@ -56,6 +59,7 @@
   "devDependencies": {
     "@types/mocha": "^8.2.2",
     "@types/node": "^16.0.0",
+    "create-validator-ts": "^1.2.0",
     "lint-staged": "^11.0.0",
     "mocha": "^9.0.1",
     "prettier": "^2.3.2",
@@ -68,6 +72,7 @@
     "access": "public"
   },
   "dependencies": {
+    "ajv": "^8.6.0",
     "yaml": "^2.0.0-6"
   }
 }
