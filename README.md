@@ -14,7 +14,7 @@ Install with [npm](https://www.npmjs.com/):
 
 or
 
-    npx @pkgdeps/update-github-actions-permissions .github/workflows/test.yaml
+    npx @pkgdeps/update-github-actions-permissions ".github/workflows/*.{yaml,yml}"
 
 ## Usage
 
@@ -29,7 +29,7 @@ or
       $ update-github-actions-permissions ".github/workflows/test.yml"
       # multiple inputs
       $ update-github-actions-permissions ".github/workflows/test.yml" ".github/workflows/publish.yml" 
-      $ update-github-actions-permissions ".github/workflows/*.yml"
+      $ update-github-actions-permissions ".github/workflows/*.{yml,yaml}"
 
 ## Add existing action's `permissions`
 
