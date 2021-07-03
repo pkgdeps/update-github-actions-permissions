@@ -1,4 +1,4 @@
-# @pkgdeps/update-github-actions-permissions
+# @pkgdeps/update-github-actions-permissions [![Actions Status: test](https://github.com/pkgdeps/update-github-actions-permissions/workflows/test/badge.svg)](https://github.com/pkgdeps/update-github-actions-permissions/actions?query=workflow%3A"test")
 
 Update GitHub Actions&#39;s `permissions` automatically.
 
