@@ -94,3 +94,7 @@ browser-actions/setup-firefox:
 rhysd/github-action-benchmark:
   permissions:
     contents: write
+imjohnbo/issue-bot:
+  permissions:
+    isssue: write
+    repository-projects: write
