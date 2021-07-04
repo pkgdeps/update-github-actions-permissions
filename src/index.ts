@@ -203,7 +203,12 @@ export const updateGitHubActions = async (
     }
     const requiresPermissions = await computePermissions(content, options);
     if (options.verbose) {
-        console.info("requires permissions: " + yaml.stringify(requiresPermissions));
+        console.info("requires permissions: ");
+        console.info(
+            yaml.stringify({
+                permissions: requiresPermissions
+            })
+        );
     }
     return insertPermissions(yamlContent, requiresPermissions);
 };
