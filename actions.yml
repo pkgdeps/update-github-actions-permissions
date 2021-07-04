@@ -98,9 +98,17 @@ rhysd/github-action-benchmark:
     contents: write
 imjohnbo/issue-bot:
   permissions:
-    isssue: write
+    issues: write
     repository-projects: write
 cypress-io/github-action:
   permissions:
     actions: read
-
+actions-ecosystem/action-add-labels:
+  permissions:
+    issues: write
+    pull-requests: write
+alex-page/github-project-automation-plus:
+  permissions:
+    issues: read
+    pull-requests: read
+    repository-projects: write

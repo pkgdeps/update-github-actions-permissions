@@ -87,7 +87,8 @@ const SCHEMA = {
         }
     }
 };
-const ajv = new Ajv({ removeAdditional: true }).addSchema(SCHEMA, "SCHEMA");
+const ajv = new Ajv().addSchema(SCHEMA, "SCHEMA");
+
 export function validateGitHubAction(payload: unknown): apiTypes.GhPermissionsDefinition {
     if (!isGitHubAction(payload)) {
         const error = new Error("invalid payload: GitHubAction");
