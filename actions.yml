@@ -100,3 +100,7 @@ imjohnbo/issue-bot:
   permissions:
     isssue: write
     repository-projects: write
+cypress-io/github-action:
+  permissions:
+    actions: read
+
