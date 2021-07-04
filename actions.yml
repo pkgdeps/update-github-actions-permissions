@@ -91,3 +91,6 @@ azu/action-package-version-to-git-tag:
   permissions:
     contents: write
 browser-actions/setup-firefox:
+rhysd/github-action-benchmark:
+  permissions:
+    contents: write

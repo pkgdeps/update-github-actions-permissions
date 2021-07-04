@@ -48,6 +48,7 @@ export const run = async (
     for (const filePath of expendedFilePaths) {
         const yamlContent = await fs.readFile(filePath, "utf-8");
         const updatedContent = await updateGitHubActions(yamlContent, {
+            filePath,
             defaultPermissions: defaultPermissions(flags.defaultPermissions),
             verbose: flags.verbose
         });

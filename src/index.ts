@@ -11,6 +11,7 @@ import { validateGitHubActions } from "./types.validator";
 import type { GhPermissionsDefinitions, GhPermissionValue, GhPermissions, GhPermissionTypes } from "./types";
 
 export type UpdateGitHubActionsOptions = {
+    filePath: string;
     verbose: boolean;
     // Apply the default permission when can not detect permissions
     defaultPermissions: "read-all" | "write-all";
@@ -190,10 +191,19 @@ export const updateGitHubActions = async (
     yamlContent: string,
     options: UpdateGitHubActionsOptions
 ): Promise<string> => {
+    if (options.verbose) {
+        console.info("process: " + options.filePath);
+    }
     const content = yaml.parse(yamlContent) as GitHubActionSchema;
     if (hasPermissions(content)) {
+        if (options.verbose) {
+            console.log("already have permissions");
+        }
         return yamlContent;
     }
     const requiresPermissions = await computePermissions(content, options);
+    if (options.verbose) {
+        console.info("requires permissions: " + yaml.stringify(requiresPermissions));
+    }
     return insertPermissions(yamlContent, requiresPermissions);
 };
