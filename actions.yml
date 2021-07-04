@@ -1,3 +1,5 @@
+# URL: https://github.com/pkgdeps/update-github-actions-permissions
+# LICENCE: MIT © azu
 actions/checkout:
   permissions:
     contents: read
