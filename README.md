@@ -40,7 +40,15 @@ If you want to improve the `permissions` definitions, please edit [actions.yml](
 1. Edit [actions.yml](./actions.yml)
 2. Submit a Pull Request
 
-:memo: `NODE_AUTH_TOKEN` is special pattern. If you found special env name, please create an issue.
+## Detection logics
+
+- Read your workflow file
+- Collect `uses` actions or `env` which is using `${{ secrets.GITHUB_TOKEN }}`
+- Match actions with [actions.yml](./actions.yml)
+- If found unknown actions, write `defaultPermissions`(`permissions: write-all`) to workflow file.
+- If found `env` usage, write `defaultPermissions`(`permissions: write-all`) to workflow file.
+  - :memo: `NODE_AUTH_TOKEN` is special pattern. Current treats it as `contents: read` and `packages: write`.  
+- Else, put `permission: <combined permissions>` to workflow file.
 
 ## Changelog
 
