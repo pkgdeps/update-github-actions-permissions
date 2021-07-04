@@ -161,7 +161,12 @@ export const computePermissions = async (
     // if found unknown actions, return default permissions
     if (knownPermissions.length !== usesActions.length) {
         if (options.verbose) {
-            console.info(`found unknown actions, use ${options.defaultPermissions}`);
+            const unknownActionNames = knownPermissions
+                .filter(([name]) => {
+                    return !Object.prototype.hasOwnProperty.call(definitions, name);
+                })
+                .map(([name]) => name);
+            console.info(`found unknown actions(${unknownActionNames.join(", ")}), use ${options.defaultPermissions}`);
         }
         return options.defaultPermissions;
     }
