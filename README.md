@@ -11,6 +11,7 @@ Before            |  After
 ## Features
 
 - Detect using Actions and add `permissions` field to your action yaml file
+- Support [40+ GitHub Actions](./actions.yml)
 
 ## Install
 
