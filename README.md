@@ -2,6 +2,12 @@
 
 Update GitHub Actions&#39;s `permissions` automatically.
 
+
+Before            |  After
+:-------------------------:|:-------------------------:
+![Before: Actions file](docs/img/before.png)  | ![After: Actions file](docs/img/after.png)
+
+
 ## Features
 
 - Detect using Actions and add `permissions` field to your action yaml file
