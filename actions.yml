@@ -112,3 +112,21 @@ alex-page/github-project-automation-plus:
     issues: read
     pull-requests: read
     repository-projects: write
+github/codeql-action/init:
+  permissions:
+    actions: read
+    contents: read
+    pull-requests: read
+    security-events: write
+github/codeql-action/autobuild:
+  permissions:
+    actions: read
+    contents: read
+    pull-requests: read
+    security-events: write
+github/codeql-action/analyze:
+  permissions:
+    actions: read
+    contents: read
+    pull-requests: read
+    security-events: write
