@@ -133,3 +133,4 @@ github/codeql-action/analyze:
 ridedott/merge-me-action:
   permissions:
     contents: write
+shogo82148/actions-check-permissions:
