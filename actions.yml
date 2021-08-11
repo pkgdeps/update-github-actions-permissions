@@ -130,3 +130,6 @@ github/codeql-action/analyze:
     contents: read
     pull-requests: read
     security-events: write
+ridedott/merge-me-action:
+  permissions:
+    contents: write
