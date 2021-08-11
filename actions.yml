@@ -138,3 +138,6 @@ shogo82148/actions-check-permissions:
 saucelabs/sauce-connect-action:
   permissions:
     contents: write
+codecov/codecov-action:
+  permissions:
+    contents: write # not required for public repos
