@@ -135,10 +135,5 @@ ridedott/merge-me-action:
     contents: write
     pull-requests: read
 shogo82148/actions-check-permissions:
-# https://github.com/saucelabs/sauce-connect-action/issues/24
 saucelabs/sauce-connect-action:
-  permissions:
-    contents: write
 codecov/codecov-action:
-  permissions:
-    contents: write # not required for public repos
