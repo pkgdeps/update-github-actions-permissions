@@ -130,3 +130,10 @@ github/codeql-action/analyze:
     contents: read
     pull-requests: read
     security-events: write
+ridedott/merge-me-action:
+  permissions:
+    contents: write
+    pull-requests: read
+shogo82148/actions-check-permissions:
+saucelabs/sauce-connect-action:
+codecov/codecov-action:
