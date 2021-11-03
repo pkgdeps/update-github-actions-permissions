@@ -101,6 +101,7 @@ imjohnbo/issue-bot:
     issues: write
     repository-projects: write
 cypress-io/github-action:
+8398a7/action-slack:
   permissions:
     actions: read
 actions-ecosystem/action-add-labels:
