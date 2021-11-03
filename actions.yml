@@ -101,6 +101,8 @@ imjohnbo/issue-bot:
     issues: write
     repository-projects: write
 cypress-io/github-action:
+  permissions:
+    actions: read
 8398a7/action-slack:
   permissions:
     actions: read
