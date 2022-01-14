@@ -140,3 +140,6 @@ ridedott/merge-me-action:
 shogo82148/actions-check-permissions:
 saucelabs/sauce-connect-action:
 codecov/codecov-action:
+mtfoley/pr-compliance-action:
+  permissions:
+    pull-requests: write
