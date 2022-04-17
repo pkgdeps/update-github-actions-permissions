@@ -138,6 +138,7 @@ ridedott/merge-me-action:
     contents: write
     pull-requests: read
 shogo82148/actions-check-permissions:
+ZacJW/markdown-html-action:
 saucelabs/sauce-connect-action:
 codecov/codecov-action:
 mtfoley/pr-compliance-action:
