@@ -133,6 +133,9 @@ github/codeql-action/analyze:
     contents: read
     pull-requests: read
     security-events: write
+goreleaser/goreleaser-action:
+  permissions:
+    contents: write
 ridedott/merge-me-action:
   permissions:
     contents: write
