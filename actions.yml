@@ -13,6 +13,13 @@ ruby/setup-ruby:
 haskell/actions/setup:
 erlef/setup-beam:
 actions/cache:
+docker/setup-buildx-action:
+docker/login-action:
+  permissions:
+    packages: write
+docker/build-push-action:
+  permissions:
+    contents: read
 amondnet/vercel-action:
   permissions:
     contents: read
