@@ -12,6 +12,7 @@ hecrj/setup-rust-action:
 ruby/setup-ruby:
 haskell/actions/setup:
 erlef/setup-beam:
+WillAbides/setup-go-faster:
 actions/cache:
 amondnet/vercel-action:
   permissions:
