@@ -88,6 +88,7 @@ google-github-actions/setup-gcloud:
 akhileshns/heroku-deploy:
   permissions:
     contents: read
+containrrr/shoutrrr-action:
 rtCamp/action-slack-notify:
 azu/action-package-version-to-git-tag:
   permissions:
