@@ -147,6 +147,7 @@ arnested/go-version-action:
 shogo82148/actions-check-permissions:
 saucelabs/sauce-connect-action:
 codecov/codecov-action:
+ludeeus/action-shellcheck:
 mtfoley/pr-compliance-action:
   permissions:
     pull-requests: write
