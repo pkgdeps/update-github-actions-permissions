@@ -76,6 +76,9 @@ pkgdeps/action-package-version-to-git-tag:
 peaceiris/actions-gh-pages:
   permissions:
     contents: write
+JamesIves/github-pages-deploy-action:
+  permissions:
+    contents: write
 peter-evans/repository-dispatch:
 helaili/jekyll-action:
   permissions:
