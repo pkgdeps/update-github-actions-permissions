@@ -149,6 +149,7 @@ ridedott/merge-me-action:
     pull-requests: read
 arnested/go-version-action:
 shogo82148/actions-check-permissions:
+ZacJW/markdown-html-action:
 saucelabs/sauce-connect-action:
 codecov/codecov-action:
 ludeeus/action-shellcheck:
