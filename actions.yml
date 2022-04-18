@@ -60,6 +60,9 @@ necojackarc/auto-request-review:
     contents: read
     issues: write
     pull-requests: write
+golangci/golangci-lint-action:
+  permissions:
+    pull-requests: write
 reviewdog/action-eslint:
   permissions:
     contents: read
