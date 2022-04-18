@@ -14,6 +14,13 @@ haskell/actions/setup:
 erlef/setup-beam:
 WillAbides/setup-go-faster:
 actions/cache:
+docker/setup-buildx-action:
+docker/login-action:
+  permissions:
+    packages: write
+docker/build-push-action:
+  permissions:
+    contents: read
 amondnet/vercel-action:
   permissions:
     contents: read
