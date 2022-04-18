@@ -16,6 +16,9 @@ actions/cache:
 amondnet/vercel-action:
   permissions:
     contents: read
+anothrNick/github-tag-action:
+  permissions:
+    contents: write
 aws-actions/configure-aws-credentials:
 actions/github-script:
   permissions: write-all
