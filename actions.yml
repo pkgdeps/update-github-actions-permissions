@@ -140,6 +140,7 @@ ridedott/merge-me-action:
   permissions:
     contents: write
     pull-requests: read
+arnested/go-version-action:
 shogo82148/actions-check-permissions:
 saucelabs/sauce-connect-action:
 codecov/codecov-action:
