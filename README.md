@@ -19,7 +19,7 @@ Install with [npm](https://www.npmjs.com/):
 
     npm install @pkgdeps/update-github-actions-permissions --global
 
-or
+or Install and Run via `npx` command:
 
     npx @pkgdeps/update-github-actions-permissions ".github/workflows/*.{yaml,yml}"
 
