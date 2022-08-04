@@ -7,7 +7,7 @@
 import yaml from "yaml";
 import * as fs from "fs/promises";
 import path from "path";
-import { validateGitHubActions } from "./types.validator";
+import { validateGhPermissionsDefinitions } from "./types.validator";
 import type { GhPermissionsDefinitions, GhPermissionValue, GhPermissions, GhPermissionTypes } from "./types";
 
 export type UpdateGitHubActionsOptions = {
@@ -20,7 +20,7 @@ export type UpdateGitHubActionsOptions = {
 const getActionsPermissionsDefinitions = async (): Promise<GhPermissionsDefinitions> => {
     const yamlContent = await fs.readFile(path.join(__dirname, "../actions.yml"), "utf-8");
     const content = yaml.parse(yamlContent);
-    return validateGitHubActions(content);
+    return validateGhPermissionsDefinitions(content);
 };
 
 type GitHubActionSchema = {
