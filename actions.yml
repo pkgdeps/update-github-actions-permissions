@@ -167,3 +167,6 @@ ludeeus/action-shellcheck:
 mtfoley/pr-compliance-action:
   permissions:
     pull-requests: write
+k-phoen/semver-release-action:
+  permissions:
+    contents: write
