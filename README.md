@@ -86,3 +86,7 @@ For bugs and feature requests, [please create an issue](https://github.com/pkgde
 ## License
 
 MIT © azu
+
+## Related 
+
+- [step-security/secure-workflows: Secure GitHub Actions CI/CD workflows via automated remediations](https://github.com/step-security/secure-workflows)
