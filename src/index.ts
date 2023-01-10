@@ -15,7 +15,7 @@ export type UpdateGitHubActionsOptions = {
     verbose: boolean;
     // Apply the default permission when can not detect permissions
     defaultPermissions: "read-all" | "write-all";
-    useRuleDefinitions: ["default", "secure-workflows"];
+    useRuleDefinitions: ("default" | "secure-workflows")[];
     // TODO: implement force option
 };
 const SupportedRuleDefinitionPathList = {
@@ -222,6 +222,12 @@ export const updateGitHubActions = async (
     yamlContent: string,
     options: UpdateGitHubActionsOptions
 ): Promise<string> => {
+    if (options.useRuleDefinitions?.length === 0) {
+        throw new Error(
+            "useRuleDefinitions is empty. please set at least one: " +
+                Object.keys(SupportedRuleDefinitionPathList).join(", ")
+        );
+    }
     if (options.verbose) {
         console.info("process: " + options.filePath);
     }
