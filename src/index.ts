@@ -15,12 +15,38 @@ export type UpdateGitHubActionsOptions = {
     verbose: boolean;
     // Apply the default permission when can not detect permissions
     defaultPermissions: "read-all" | "write-all";
+    useRuleDefinitions: ["default", "secure-workflows"];
     // TODO: implement force option
 };
-const getActionsPermissionsDefinitions = async (): Promise<GhPermissionsDefinitions> => {
-    const yamlContent = await fs.readFile(path.join(__dirname, "../actions.yml"), "utf-8");
-    const content = yaml.parse(yamlContent);
-    return validateGhPermissionsDefinitions(content);
+const SupportedRuleDefinitionPathList = {
+    default: path.join(__dirname, "../actions.yml"),
+    "secure-workflows": path.join(__dirname, "third-party/secure-workflows.yml")
+};
+
+const mergedDefinition = (definitions: GhPermissionsDefinitions[]) => {
+    return definitions.reduce((acc, cur) => {
+        return {
+            ...acc,
+            ...cur
+        };
+    }, {});
+};
+const getActionsPermissionsDefinitions = async (
+    options: UpdateGitHubActionsOptions
+): Promise<GhPermissionsDefinitions> => {
+    const { useRuleDefinitions } = options;
+    const definitions = await Promise.all(
+        useRuleDefinitions.map(async (name) => {
+            if (!Object.keys(SupportedRuleDefinitionPathList).includes(name)) {
+                throw new Error("Does not support rule definition: " + name);
+            }
+            const yamlContent = await fs.readFile(SupportedRuleDefinitionPathList[name], "utf-8");
+            const content = yaml.parse(yamlContent) satisfies GhPermissionsDefinitions;
+            validateGhPermissionsDefinitions(content);
+            return content;
+        })
+    );
+    return mergedDefinition(definitions);
 };
 
 type GitHubActionSchema = {
@@ -153,7 +179,7 @@ export const computePermissions = async (
     content: GitHubActionSchema,
     options: UpdateGitHubActionsOptions
 ): Promise<GhPermissions> => {
-    const definitions = await getActionsPermissionsDefinitions();
+    const definitions = await getActionsPermissionsDefinitions(options);
     const usesActions = collectUsesActions(content);
     const knownPermissions = usesActions.filter(([name]) => {
         return Object.prototype.hasOwnProperty.call(definitions, name);

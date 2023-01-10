@@ -47,7 +47,8 @@
     "clean": "rimraf lib/ module/",
     "prepublishOnly": "npm run clean && npm run build",
     "validator-ts": "create-validator-ts src/types.ts",
-    "test:validator-ts": "create-validator-ts src/types.ts --check"
+    "test:validator-ts": "create-validator-ts src/types.ts --check",
+    "pull:secure-workflows": "ts-node scripts/pull-secure-workflows.ts"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css}": [
@@ -61,16 +62,16 @@
     "trailingComma": "none"
   },
   "devDependencies": {
-    "@types/mocha": "^9.1.1",
-    "@types/node": "^18.6.3",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.11.18",
     "create-validator-ts": "^4.0.2",
-    "lint-staged": "^13.0.3",
-    "mocha": "^10.0.0",
-    "prettier": "^2.7.1",
+    "lint-staged": "^13.1.0",
+    "mocha": "^10.2.0",
+    "prettier": "^2.8.2",
     "rimraf": "^3.0.2",
     "ts-node": "^10.9.1",
     "ts-node-test-register": "^10.0.0",
-    "typescript": "^4.7.4"
+    "typescript": "^4.9.4"
   },
   "publishConfig": {
     "access": "public"
