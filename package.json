@@ -49,7 +49,9 @@
     "prepublishOnly": "npm run clean && npm run build",
     "validator-ts": "create-validator-ts src/types.ts",
     "test:validator-ts": "create-validator-ts src/types.ts --check",
-    "pull:secure-workflows": "ts-node scripts/pull-secure-workflows.ts"
+    "update:third-party": "npm run update:secure-workflows",
+    "update:secure-workflows": "ts-node scripts/pull-secure-workflows.ts",
+    "ci:release": "npm publish --yes"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css}": [

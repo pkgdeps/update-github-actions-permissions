@@ -1,0 +1,46 @@
+name: Cron Update third-party
+on:
+  schedule:
+    # per a week
+    - cron:  '0 0 * * 0'
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  createPullRequest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v
+        with:
+          node-version: 18
+      - run: yarn install
+      - name: Try to update third-party
+        run: npm run update:third-party
+      - name: Tests
+        run: npm test
+      - name: Update package version if has Change
+        run: git diff --exit-code && npm version major --no-git-tag-version
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "feat!(deps): Update third-party"
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          branch: update-third-party
+          branch-suffix: timestamp
+          delete-branch: true
+          title: '[Update] third-party resources'
+          body: |
+            New resources
+            
+            - [step-security/secure-workflows](https://github.com/step-security/secure-workflows)
+          labels: "Type: dependencies"
+          assignees: azu
+          reviewers: azu
+          draft: false
+      - name: Check outputs
+        run: |
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
