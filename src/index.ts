@@ -20,7 +20,7 @@ export type UpdateGitHubActionsOptions = {
 };
 const SupportedRuleDefinitionPathList = {
     default: path.join(__dirname, "../actions.yml"),
-    "secure-workflows": path.join(__dirname, "third-party/secure-workflows.yml")
+    "secure-workflows": path.join(__dirname, "../third-party/secure-workflows.yml")
 };
 
 const mergedDefinition = (definitions: GhPermissionsDefinitions[]) => {
@@ -225,7 +225,7 @@ export const updateGitHubActions = async (
     if (options.verbose) {
         console.info("process: " + options.filePath);
     }
-    const content = yaml.parse(yamlContent) as GitHubActionSchema;
+    const content = yaml.parse(yamlContent) satisfies GitHubActionSchema;
     if (hasPermissions(content)) {
         if (options.verbose) {
             console.log("already have permissions");

@@ -49,10 +49,14 @@ export const run = async (
     input = cli.input,
     flags = cli.flags
 ): Promise<{ exitStatus: number; stdout: string | null; stderr: Error | null }> => {
-    const useRuleDefinitions = (flags.useRuleDefinitions ?? [
-        "default",
-        "secure-workflows"
-    ]) as UpdateGitHubActionsOptions["useRuleDefinitions"];
+    const useRuleDefinitions = (
+        flags.useRuleDefinitions && flags.useRuleDefinitions.length > 0
+            ? flags.useRuleDefinitions
+            : ["default", "secure-workflows"]
+    ) as UpdateGitHubActionsOptions["useRuleDefinitions"];
+    if (flags.verbose) {
+        console.info("useRuleDefinitions: " + useRuleDefinitions.join(", "));
+    }
     const expendedFilePaths = await glloby(input);
     for (const filePath of expendedFilePaths) {
         const yamlContent = await fs.readFile(filePath, "utf-8");
