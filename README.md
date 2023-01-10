@@ -3,10 +3,9 @@
 Update GitHub Actions&#39;s `permissions` automatically.
 
 
-Before            |  After
-:-------------------------:|:-------------------------:
-![Before: Actions file](docs/img/before.png)  | ![After: Actions file](docs/img/after.png)
-
+|                    Before                    |                   After                    |
+|:--------------------------------------------:|:------------------------------------------:|
+| ![Before: Actions file](docs/img/before.png) | ![After: Actions file](docs/img/after.png) |
 
 ## Features
 
