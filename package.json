@@ -32,6 +32,7 @@
   },
   "files": [
     "actions.yml",
+    "third-party/",
     "bin/",
     "lib/",
     "module/",
