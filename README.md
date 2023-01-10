@@ -38,7 +38,7 @@ or Install and Run via `npx` command:
       $ update-github-actions-permissions ".github/workflows/test.yml" ".github/workflows/publish.yml" 
       $ update-github-actions-permissions ".github/workflows/*.{yml,yaml}"
 
-## Add existing action's `permissions`
+## Add action's `permissions`
 
 This tool manage `permissions` in [actions.yml](./actions.yml).
 
