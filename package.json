@@ -17,7 +17,7 @@
     "type": "git",
     "url": "https://github.com/pkgdeps/update-github-actions-permissions.git"
   },
-  "license": "MIT",
+  "license": "AGPL",
   "author": "azu",
   "sideEffects": false,
   "main": "lib/index.js",
