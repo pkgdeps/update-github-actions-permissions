@@ -1,0 +1,10 @@
+name: test
+on: [push, pull_request]
+permissions: {}
+jobs:
+  test:
+    name: "UNKNOWN"
+    runs-on: ubuntu-18.04
+    steps:
+      - name: step-security/harden-runner
+        uses: step-security/harden-runner@v1
