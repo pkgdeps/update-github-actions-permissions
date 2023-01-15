@@ -6,9 +6,13 @@
 // Else if, put `permission: <combined permissions>`
 import yaml from "yaml";
 import * as fs from "fs/promises";
-import path from "path";
-import { validateGhPermissionsDefinitions } from "./types.validator";
-import type { GhPermissionsDefinitions, GhPermissionValue, GhPermissions, GhPermissionTypes } from "./types";
+import url from "node:url";
+import path from "node:path";
+import { validateGhPermissionsDefinitions } from "./types.validator.js";
+import type { GhPermissionsDefinitions, GhPermissionValue, GhPermissions, GhPermissionTypes } from "./types.js";
+
+const __filename__ = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename__);
 
 export type UpdateGitHubActionsOptions = {
     filePath: string;
@@ -16,7 +20,6 @@ export type UpdateGitHubActionsOptions = {
     // Apply the default permission when can not detect permissions
     defaultPermissions: "read-all" | "write-all";
     useRuleDefinitions: ("default" | "secure-workflows")[];
-    // TODO: implement force option
 };
 const SupportedRuleDefinitionPathList = {
     default: path.join(__dirname, "../actions.yml"),

@@ -4,7 +4,7 @@ import path from "path";
 import * as fs from "fs/promises";
 import * as globby from "globby";
 import yaml from "yaml";
-import { GhPermissions, GhPermissionsDefinition, GhPermissionTypes } from "../src/types";
+import type { GhPermissions, GhPermissionsDefinition, GhPermissionTypes } from "../src/types.js";
 
 /**
  * secure-workflows code is licensed under GPL v3
@@ -71,7 +71,7 @@ const pullSecureWorkflows = async () => {
         await child_process.execFile("git", ["clone", "--depth", "1", REPOSITORY, workingDirectory]);
     }
     // find knowledge-base/actions/<action-name>/action-security.yml
-    const files = await globby.sync([`${workingDirectory}/knowledge-base/actions/**/action-security.yml`]);
+    const files = await globby.globby([`${workingDirectory}/knowledge-base/actions/**/action-security.yml`]);
     const permissionMap = new Map<string, GhPermissionsDefinition>();
     for (const filePath of files) {
         const match = filePath.match(/knowledge-base\/actions\/(?<actionName>.*)\/action-security.yml/);

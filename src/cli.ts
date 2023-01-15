@@ -1,7 +1,7 @@
 import meow from "meow";
 import * as fs from "fs/promises";
-import glloby from "globby";
-import { updateGitHubActions, UpdateGitHubActionsOptions } from "./index";
+import * as glloby from "globby";
+import { updateGitHubActions, UpdateGitHubActionsOptions } from "./index.js";
 
 export const cli = meow(
     `
@@ -20,6 +20,7 @@ export const cli = meow(
       $ update-github-actions-permissions ".github/workflows/*.{yml,yaml}"
 `,
     {
+        importMeta: import.meta,
         flags: {
             defaultPermissions: {
                 type: "string",
@@ -48,7 +49,11 @@ const defaultPermissions = (permission: string): "write-all" | "read-all" => {
 export const run = async (
     input = cli.input,
     flags = cli.flags
-): Promise<{ exitStatus: number; stdout: string | null; stderr: Error | null }> => {
+): Promise<{
+    exitStatus: number;
+    stdout: string | null;
+    stderr: Error | null;
+}> => {
     const useRuleDefinitions = (
         flags.useRuleDefinitions && flags.useRuleDefinitions.length > 0
             ? flags.useRuleDefinitions
