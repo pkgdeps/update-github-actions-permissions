@@ -1,4 +1,4 @@
-import { mergePermissions } from "../src";
+import { mergePermissions } from "../src/index.js";
 import assert from "assert";
 
 describe("mergePermissions", function () {

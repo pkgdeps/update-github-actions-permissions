@@ -17,12 +17,23 @@
     "type": "git",
     "url": "https://github.com/pkgdeps/update-github-actions-permissions.git"
   },
-  "license": "AGPL",
+  "license": "AGPL-3.0",
   "author": "azu",
   "sideEffects": false,
-  "main": "lib/index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./module/index.d.ts",
+        "default": "./module/index.js"
+      },
+      "default": "./module/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./module/index.js",
   "module": "module/index.js",
-  "types": "lib/index.d.ts",
+  "types": "./module/index.d.ts",
   "bin": {
     "update-github-actions-permissions": "bin/cmd.js"
   },
@@ -31,27 +42,24 @@
     "test": "test"
   },
   "files": [
-    "actions.yml",
-    "third-party/",
     "bin/",
-    "lib/",
     "module/",
     "src/"
   ],
   "scripts": {
-    "test": "mocha \"test/**/*.ts\"",
-    "updateSnapshot": "UPDATE_SNAPSHOT=1 npm test",
+    "build": "tsc --build",
+    "ci:release": "npm publish --yes",
+    "clean": "tsc --build --clean",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
     "prepare": "git config --local core.hooksPath .githooks",
-    "build": "tsc -p . && tsc -p ./tsconfig.module.json",
-    "watch": "tsc -p . --watch",
-    "clean": "rimraf lib/ module/",
     "prepublishOnly": "npm run clean && npm run build",
-    "validator-ts": "create-validator-ts src/types.ts",
+    "test": "mocha",
     "test:validator-ts": "create-validator-ts src/types.ts --check",
+    "update:secure-workflows": "ts-node-esm scripts/pull-secure-workflows.ts",
     "update:third-party": "npm run update:secure-workflows",
-    "update:secure-workflows": "ts-node scripts/pull-secure-workflows.ts",
-    "ci:release": "npm publish --yes"
+    "updateSnapshot": "UPDATE_SNAPSHOT=1 npm test",
+    "validator-ts": "create-validator-ts src/types.ts",
+    "watch": "tsc --build --watch"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css}": [
@@ -64,25 +72,25 @@
     "tabWidth": 4,
     "trailingComma": "none"
   },
+  "dependencies": {
+    "ajv": "^8.12.0",
+    "globby": "^13.1.3",
+    "meow": "11.0.0",
+    "yaml": "^2.2.1"
+  },
   "devDependencies": {
     "@types/mocha": "^10.0.1",
     "@types/node": "^18.11.18",
-    "create-validator-ts": "^4.0.2",
+    "create-validator-ts": "^5.0.1",
     "lint-staged": "^13.1.0",
     "mocha": "^10.2.0",
-    "prettier": "^2.8.2",
-    "rimraf": "^3.0.2",
+    "prettier": "^2.8.3",
+    "rimraf": "^4.0.5",
     "ts-node": "^10.9.1",
-    "ts-node-test-register": "^10.0.0",
     "typescript": "^4.9.4"
   },
+  "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "ajv": "^8.11.0",
-    "globby": "^11.0.4",
-    "meow": "9",
-    "yaml": "^2.1.1"
   }
 }
