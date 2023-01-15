@@ -44,7 +44,8 @@
   "files": [
     "bin/",
     "module/",
-    "src/"
+    "src/",
+    "third-party/"
   ],
   "scripts": {
     "build": "tsc --build",
