@@ -1,7 +1,7 @@
 import meow from "meow";
 import * as fs from "fs/promises";
 import glloby from "globby";
-import { updateGitHubActions } from "./index";
+import { updateGitHubActions, UpdateGitHubActionsOptions } from "./index";
 
 export const cli = meow(
     `
@@ -11,6 +11,7 @@ export const cli = meow(
     Options
       --defaultPermissions                [String] "write-all" or "read-all". Default: "write-all"
       --verbose                           [Boolean] If enable verbose, output debug info.
+      --use-rule-definitions              [String[]] Use rule definitions. Default: ["default", "secure-workflows"]
  
     Examples
       $ update-github-actions-permissions ".github/workflows/test.yml"
@@ -27,6 +28,10 @@ export const cli = meow(
             verbose: {
                 type: "boolean",
                 default: false
+            },
+            useRuleDefinitions: {
+                type: "string",
+                isMultiple: true
             }
         },
         autoHelp: true,
@@ -38,18 +43,27 @@ const defaultPermissions = (permission: string): "write-all" | "read-all" => {
     if (permission === "write-all" || permission === "read-all") {
         return permission;
     }
-    throw new Error(`Unknown permisssions: ${permission}`);
+    throw new Error(`Unknown permissions: ${permission}`);
 };
 export const run = async (
     input = cli.input,
     flags = cli.flags
 ): Promise<{ exitStatus: number; stdout: string | null; stderr: Error | null }> => {
+    const useRuleDefinitions = (
+        flags.useRuleDefinitions && flags.useRuleDefinitions.length > 0
+            ? flags.useRuleDefinitions
+            : ["default", "secure-workflows"]
+    ) as UpdateGitHubActionsOptions["useRuleDefinitions"];
+    if (flags.verbose) {
+        console.info("useRuleDefinitions: " + useRuleDefinitions.join(", "));
+    }
     const expendedFilePaths = await glloby(input);
     for (const filePath of expendedFilePaths) {
         const yamlContent = await fs.readFile(filePath, "utf-8");
         const updatedContent = await updateGitHubActions(yamlContent, {
             filePath,
             defaultPermissions: defaultPermissions(flags.defaultPermissions),
+            useRuleDefinitions,
             verbose: flags.verbose
         });
         if (yamlContent !== updatedContent) {

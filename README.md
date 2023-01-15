@@ -2,11 +2,9 @@
 
 Update GitHub Actions&#39;s `permissions` automatically.
 
-
-Before            |  After
-:-------------------------:|:-------------------------:
-![Before: Actions file](docs/img/before.png)  | ![After: Actions file](docs/img/after.png)
-
+|                    Before                    |                   After                    |
+|:--------------------------------------------:|:------------------------------------------:|
+| ![Before: Actions file](docs/img/before.png) | ![After: Actions file](docs/img/after.png) |
 
 ## Features
 
@@ -38,7 +36,7 @@ or Install and Run via `npx` command:
       $ update-github-actions-permissions ".github/workflows/test.yml" ".github/workflows/publish.yml" 
       $ update-github-actions-permissions ".github/workflows/*.{yml,yaml}"
 
-## Add existing action's `permissions`
+## Add action's `permissions`
 
 This tool manage `permissions` in [actions.yml](./actions.yml).
 
@@ -54,7 +52,7 @@ If you want to improve the `permissions` definitions, please edit [actions.yml](
 - Match actions with [actions.yml](./actions.yml)
 - If found unknown actions, write `defaultPermissions`(`permissions: write-all`) to workflow file.
 - If found `env` usage, write `defaultPermissions`(`permissions: write-all`) to workflow file.
-  - :memo: `NODE_AUTH_TOKEN` is special pattern. Current treats it as `contents: read` and `packages: write`.  
+    - :memo: `NODE_AUTH_TOKEN` is special pattern. Current treats it as `contents: read` and `packages: write`.
 - Else, put `permission: <combined permissions>` to workflow file.
 
 ## Changelog
@@ -71,7 +69,8 @@ Install devDependencies and Run `npm test`:
 
 Pull requests and stars are always welcome.
 
-For bugs and feature requests, [please create an issue](https://github.com/pkgdeps/update-github-actions-permissions/issues).
+For bugs and feature
+requests, [please create an issue](https://github.com/pkgdeps/update-github-actions-permissions/issues).
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
@@ -85,8 +84,20 @@ For bugs and feature requests, [please create an issue](https://github.com/pkgde
 
 ## License
 
-MIT © azu
+This package is licensed under the AGPL(GNU Affero General Public License) v3.0.
+Because this package includes AGPL-licensed [third-party](third-party/) resources like [step-security/secure-workflows](https://github.com/step-security/secure-workflows).
 
-## Related 
+- [secure-workflows.yml](third-party/secure-workflows.yml): AGPL v3.0 ©️ [step-security/secure-workflows](https://github.com/step-security/secure-workflows)
+
+However, Next files are available under the [MIT license](./LICENSE-MIT):
+
+- `bin/*`
+- `src/*`
+- `lib/*`
+- `module/*`
+- `test/*`
+- `action.yml`
+
+## Related
 
 - [step-security/secure-workflows: Secure GitHub Actions CI/CD workflows via automated remediations](https://github.com/step-security/secure-workflows)
