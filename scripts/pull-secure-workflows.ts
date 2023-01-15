@@ -5,6 +5,9 @@ import * as fs from "fs/promises";
 import * as globby from "globby";
 import yaml from "yaml";
 import type { GhPermissions, GhPermissionsDefinition, GhPermissionTypes } from "../src/types.js";
+import url from "node:url";
+const __filename__ = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename__);
 
 /**
  * secure-workflows code is licensed under GPL v3

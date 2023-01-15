@@ -55,7 +55,7 @@
     "prepublishOnly": "npm run clean && npm run build",
     "test": "mocha",
     "test:validator-ts": "create-validator-ts src/types.ts --check",
-    "update:secure-workflows": "ts-node scripts/pull-secure-workflows.ts",
+    "update:secure-workflows": "ts-node-esm scripts/pull-secure-workflows.ts",
     "update:third-party": "npm run update:secure-workflows",
     "updateSnapshot": "UPDATE_SNAPSHOT=1 npm test",
     "validator-ts": "create-validator-ts src/types.ts",
