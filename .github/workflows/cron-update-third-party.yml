@@ -20,7 +20,7 @@ jobs:
       - name: Tests
         run: npm test
       - name: Update package version if has Change
-        run: git diff --exit-code && npm version major --no-git-tag-version
+        run: git diff --exit-code && npm version minor --no-git-tag-version
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v3
