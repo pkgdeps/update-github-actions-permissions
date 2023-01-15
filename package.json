@@ -45,6 +45,7 @@
     "bin/",
     "module/",
     "src/",
+    "actions.yml",
     "third-party/"
   ],
   "scripts": {
