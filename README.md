@@ -23,12 +23,14 @@ or Install and Run via `npx` command:
 
 ## Usage
 
+
     Usage
       $ update-github-actions-permissions "[file|glob]"
  
     Options
       --defaultPermissions                [String] "write-all" or "read-all". Default: "write-all"
       --verbose                           [Boolean] If enable verbose, output debug info.
+      --use-rule-definitions              [String[]] Use rule definitions. Default: ["default", "secure-workflows"]
  
     Examples
       $ update-github-actions-permissions ".github/workflows/test.yml"
@@ -36,7 +38,7 @@ or Install and Run via `npx` command:
       $ update-github-actions-permissions ".github/workflows/test.yml" ".github/workflows/publish.yml" 
       $ update-github-actions-permissions ".github/workflows/*.{yml,yaml}"
 
-## Add action's `permissions`
+## Add new Actions
 
 This tool manage `permissions` in [actions.yml](./actions.yml).
 
@@ -44,6 +46,10 @@ If you want to improve the `permissions` definitions, please edit [actions.yml](
 
 1. Edit [actions.yml](./actions.yml)
 2. Submit a Pull Request
+
+📝 This tool includes [step-security/secure-workflows](https://github.com/step-security/secure-workflows) definitions.
+If same action is defined in both, this tool prefer to use  [actions.yml](./actions.yml).
+This order can be changed via `--use-rule-definitions` flag.
 
 ## Detection logics
 
