@@ -1,0 +1,29 @@
+name: Remind NPM_TOKEN
+on:
+  schedule:
+    # 1/10 @ every year
+    - cron:  "0 0 10 1 *"
+
+jobs:
+  create_issue:
+    name: Remind NPM_TOKEN
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Create team sync issue
+        uses: imjohnbo/issue-bot@v3.4
+        with:
+          assignees: "azu"
+          labels: "Type: Release"
+          title: "[Action Required] env.NPM_TOKEN will be expired"
+          body: |
+            `NPM_TOKEN` will be expired.
+            Please update `NPM_TOKEN` of GitHub Actions.
+            
+            - Create new granular-access-tokens for update-github-actions-permissions
+            - Update https://github.com/pkgdeps/update-github-actions-permissions/settings/secrets/actions/NPM_TOKEN
+          pinned: false
+          close-previous: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
