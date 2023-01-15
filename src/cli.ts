@@ -1,6 +1,6 @@
 import meow from "meow";
-import * as fs from "fs/promises";
-import * as glloby from "globby";
+import * as fs from "node:fs/promises";
+import * as globby from "globby";
 import { updateGitHubActions, UpdateGitHubActionsOptions } from "./index.js";
 
 export const cli = meow(
@@ -62,7 +62,7 @@ export const run = async (
     if (flags.verbose) {
         console.info("useRuleDefinitions: " + useRuleDefinitions.join(", "));
     }
-    const expendedFilePaths = await glloby(input);
+    const expendedFilePaths = await globby.globby(input);
     for (const filePath of expendedFilePaths) {
         const yamlContent = await fs.readFile(filePath, "utf-8");
         const updatedContent = await updateGitHubActions(yamlContent, {

@@ -5,7 +5,7 @@
 // If found unknown use-case, put `permissions: write-all`
 // Else if, put `permission: <combined permissions>`
 import yaml from "yaml";
-import * as fs from "fs/promises";
+import * as fs from "node:fs/promises";
 import url from "node:url";
 import path from "node:path";
 import { validateGhPermissionsDefinitions } from "./types.validator.js";
