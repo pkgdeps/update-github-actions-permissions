@@ -48,7 +48,6 @@
   ],
   "scripts": {
     "build": "tsc --build",
-    "ci:release": "npm publish --yes",
     "clean": "tsc --build --clean",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
     "prepare": "git config --local core.hooksPath .githooks",
@@ -59,6 +58,12 @@
     "update:third-party": "npm run update:secure-workflows",
     "updateSnapshot": "UPDATE_SNAPSHOT=1 npm test",
     "validator-ts": "create-validator-ts src/types.ts",
+    "versionup": "lerna version",
+    "ci:versionup:patch": "npm version patch --no-push --no-git-tag-version --yes && npm run commit-version",
+    "ci:versionup:minor": "npm version minor --no-push --no-git-tag-version --yes && npm run commit-version",
+    "ci:versionup:major": "npm version major --no-push --no-git-tag-version --yes && npm run commit-version",
+    "commit-version": "git add . && git commit -m \"chore(release): v`node -p 'require(\"./package.json\").version'`\"",
+    "ci:release": "npm publish from-package --yes",
     "watch": "tsc --build --watch"
   },
   "lint-staged": {
