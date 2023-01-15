@@ -10,6 +10,56 @@ abatilo/actions-poetry:
 abutler/upload-release-assets:
   permissions:
     contents: write
+actions-cool/check-pr-ci:
+  permissions:
+    checks: read
+    contents: write
+    issues: write
+    pull-requests: write
+actions-cool/check-user-permission:
+  permissions:
+    contents: read
+actions-cool/issues-helper:
+  permissions:
+    issues: write
+    pull-requests: write
+actions-cool/issues-similarity-analysis:
+  permissions:
+    issues: write
+actions-cool/maintain-one-comment:
+  permissions:
+    issues: write
+    pull-requests: write
+actions-cool/pr-check-fill:
+  permissions:
+    pull-requests: write
+actions-cool/pr-welcome:
+  permissions:
+    issues: write
+    pull-requests: write
+actions-cool/release-helper:
+  permissions:
+    contents: write
+actions-cool/verify-files-modify:
+  permissions:
+    pull-requests: write
+actions-cool/verify-package-version:
+  permissions:
+    pull-requests: write
+actions-ecosystem/action-remove-labels:
+  permissions:
+    issues: write
+actions-r-us/actions-tagger:
+  permissions:
+    contents: write
+actions-rs/audit-check:
+  permissions:
+    checks: write
+    issues: write
+actions-rs/cargo:
+  permissions: {}
+actions-rs/toolchain:
+  permissions: {}
 actions/cache:
   permissions: {}
 actions/checkout:
@@ -51,56 +101,6 @@ actions/upload-artifact:
 actions/upload-release-asset:
   permissions:
     contents: write
-actions-cool/check-pr-ci:
-  permissions:
-    pull-requests: write
-    issues: write
-    contents: write
-    checks: read
-actions-cool/check-user-permission:
-  permissions:
-    contents: read
-actions-cool/issues-helper:
-  permissions:
-    issues: write
-    pull-requests: write
-actions-cool/issues-similarity-analysis:
-  permissions:
-    issues: write
-actions-cool/maintain-one-comment:
-  permissions:
-    issues: write
-    pull-requests: write
-actions-cool/pr-check-fill:
-  permissions:
-    pull-requests: write
-actions-cool/pr-welcome:
-  permissions:
-    issues: write
-    pull-requests: write
-actions-cool/release-helper:
-  permissions:
-    contents: write
-actions-cool/verify-files-modify:
-  permissions:
-    pull-requests: write
-actions-cool/verify-package-version:
-  permissions:
-    pull-requests: write
-actions-ecosystem/action-remove-labels:
-  permissions:
-    issues: write
-actions-r-us/actions-tagger:
-  permissions:
-    contents: write
-actions-rs/audit-check:
-  permissions:
-    issues: write
-    checks: write
-actions-rs/cargo:
-  permissions: {}
-actions-rs/toolchain:
-  permissions: {}
 ad-m/github-push-action:
   permissions:
     contents: write
@@ -150,6 +150,12 @@ andymckay/labeler:
   permissions:
     issues: write
     pull-requests: write
+angular/dev-infra/github-actions/commit-message-based-labels:
+  permissions: {}
+angular/dev-infra/github-actions/feature-request:
+  permissions: {}
+angular/dev-infra/github-actions/lock-closed:
+  permissions: {}
 apisec-inc/apisec-run-scan:
   permissions: {}
 apple-actions/import-codesign-certs:
@@ -210,6 +216,22 @@ azure/static-web-apps-deploy:
     pull-requests: write
 azure/webapps-deploy:
   permissions: {}
+babel/actions/create-comment:
+  permissions:
+    issues: write
+babel/actions/generate-lerna-changelog:
+  permissions: {}
+babel/actions/get-release-tags:
+  permissions: {}
+babel/actions/is-org-member:
+  permissions: {}
+babel/actions/publish-github-release:
+  permissions:
+    contents: write
+babel/actions/ref-matches-branch:
+  permissions: {}
+babel/actions/update-changelog:
+  permissions: {}
 bahmutov/npm-install:
   permissions: {}
 balchua/microk8s-actions:
@@ -243,8 +265,8 @@ ceph/ceph-pr-checklist-action:
   permissions: {}
 checkmarx-ts/checkmarx-cxflow-github-action:
   permissions:
-    pull-requests: write
     issues: write
+    pull-requests: write
 chriscarini/intellij-platform-plugin-verifier-action:
   permissions: {}
 christophwurst/xmllint-action:
@@ -314,10 +336,22 @@ cypress-io/github-action:
     actions: read
 dart-lang/setup-dart:
   permissions: {}
+datadog/action-prebuildify/node/12:
+  permissions: {}
+datadog/action-prebuildify/node/14:
+  permissions: {}
+datadog/action-prebuildify/node/16:
+  permissions: {}
+datadog/action-prebuildify/node/18:
+  permissions: {}
+datadog/action-prebuildify/prebuild:
+  permissions: {}
+datadog/action-prebuildify/test:
+  permissions: {}
 dawidd6/action-download-artifact:
   permissions:
-    pull-requests: read
     actions: read
+    pull-requests: read
 dawidd6/action-homebrew-bump-formula:
   permissions: {}
 dawidd6/action-send-mail:
@@ -371,8 +405,19 @@ dorny/paths-filter:
     pull-requests: read
 dustico/dusti-lock:
   permissions: {}
+elstudio/actions-js-build/build:
+  permissions: {}
+elstudio/actions-js-build/commit:
+  permissions:
+    contents: write
 engineerd/setup-kind:
   permissions: {}
+enricomi/publish-unit-test-result-action/composite:
+  permissions:
+    checks: write
+    contents: read
+    issues: read
+    pull-requests: write
 eps1lon/actions-label-merge-conflict:
   permissions:
     pull-requests: write
@@ -414,13 +459,28 @@ gaurav-nelson/github-action-markdown-link-check:
   permissions: {}
 geekyeggo/delete-artifact:
   permissions: {}
+github/codeql-action/analyze:
+  permissions:
+    security-events: write
+github/codeql-action/autobuild:
+  permissions:
+    security-events: write
+github/codeql-action/init:
+  permissions:
+    actions: read
+github/codeql-action/upload-sarif:
+  permissions:
+    security-events: write
 github/issue-labeler:
   permissions:
-    issues: write
     contents: read
+    issues: write
 github/ossar-action:
   permissions: {}
 github/super-linter:
+  permissions:
+    statuses: write
+github/super-linter/slim:
   permissions:
     statuses: write
 githubocto/repo-visualizer:
@@ -429,9 +489,6 @@ githubocto/repo-visualizer:
 golangci/golangci-lint-action:
   permissions:
     pull-requests: read
-google/mirror-branch-action:
-  permissions:
-    contents: write
 google-github-actions/auth:
   permissions: {}
 google-github-actions/release-please-action:
@@ -440,6 +497,23 @@ google-github-actions/release-please-action:
     pull-requests: write
 google-github-actions/setup-gcloud:
   permissions: {}
+google/clusterfuzzlite/actions/build_fuzzers:
+  permissions:
+    actions: read
+    contents: read
+google/clusterfuzzlite/actions/run_fuzzers:
+  permissions:
+    actions: read
+    contents: read
+google/mirror-branch-action:
+  permissions:
+    contents: write
+google/oss-fuzz/infra/cifuzz/actions/build_fuzzers:
+  permissions: {}
+google/oss-fuzz/infra/cifuzz/actions/run_fuzzers:
+  permissions:
+    actions: read
+    contents: read
 goreleaser/goreleaser-action:
   permissions:
     contents: write
@@ -447,14 +521,16 @@ gr2m/create-or-update-pull-request-action:
   permissions:
     contents: write
     pull-requests: write
+gradle/build-tool-issue-automation-actions/add-labeled-issues:
+  permissions: {}
 gradle/gradle-build-action:
   permissions: {}
 gradle/wrapper-validation-action:
   permissions: {}
 gregsdennis/dependencies-action:
   permissions:
-    pull-requests: read
     issues: read
+    pull-requests: read
 hashicorp/actions-docker-build:
   permissions: {}
 hashicorp/actions-generate-metadata:
@@ -462,6 +538,8 @@ hashicorp/actions-generate-metadata:
 hashicorp/actions-packaging-linux:
   permissions: {}
 hashicorp/setup-terraform:
+  permissions: {}
+haskell/actions/setup:
   permissions: {}
 hecrj/setup-rust-action:
   permissions: {}
@@ -484,17 +562,64 @@ hmarr/auto-approve-action:
     pull-requests: write
 hmarr/debug-action:
   permissions: {}
+home-assistant/actions/helpers/cas:
+  permissions: {}
+home-assistant/actions/helpers/codenotary:
+  permissions: {}
+home-assistant/actions/helpers/git-init:
+  permissions: {}
+home-assistant/actions/helpers/info:
+  permissions: {}
+home-assistant/actions/helpers/verify-version:
+  permissions: {}
+home-assistant/actions/helpers/version:
+  permissions: {}
+home-assistant/actions/helpers/version-push:
+  permissions: {}
 home-assistant/builder:
   permissions: {}
 home-assistant/wheels:
+  permissions: {}
+homebrew/actions/bump-formulae:
+  permissions: {}
+homebrew/actions/check-commit-format:
+  permissions:
+    contents: read
+    pull-requests: write
+    statuses: write
+homebrew/actions/create-gcloud-instance:
+  permissions: {}
+homebrew/actions/dismiss-approvals:
+  permissions:
+    pull-requests: write
+homebrew/actions/git-try-push:
+  permissions:
+    contents: write
+homebrew/actions/git-user-config:
+  permissions: {}
+homebrew/actions/label-pull-requests:
+  permissions:
+    contents: read
+    pull-requests: write
+homebrew/actions/post-comment:
+  permissions:
+    issues: write
+    pull-requests: write
+homebrew/actions/remove-disabled-formulae:
+  permissions: {}
+homebrew/actions/setup-commit-signing:
+  permissions: {}
+homebrew/actions/setup-homebrew:
+  permissions: {}
+homebrew/actions/wait-for-idle-runner:
   permissions: {}
 hramos/needs-attention:
   permissions:
     issues: write
 hramos/respond-to-issue-based-on-label:
   permissions:
-    issues: write
     contents: read
+    issues: write
 ibiqlik/action-yamllint:
   permissions: {}
 icrawl/action-tsc:
@@ -543,8 +668,8 @@ jwalton/gh-docker-logs:
   permissions: {}
 kapiche/cobertura-action:
   permissions:
-    pull-requests: write
     checks: write
+    pull-requests: write
 kapiche/scan-action:
   permissions: {}
 karancode/yamllint-github-action:
@@ -568,6 +693,13 @@ kubernetes-sigs/kubebuilder-release-tools:
 lewagon/wait-on-check-action:
   permissions:
     checks: read
+ljharb/actions-js-build/commit:
+  permissions:
+    contents: write
+ljharb/actions/node/install:
+  permissions: {}
+ljharb/actions/node/matrix:
+  permissions: {}
 ljharb/rebase:
   permissions:
     contents: write
@@ -656,8 +788,8 @@ ossf/scorecard-action:
   permissions: {}
 pascalgn/automerge-action:
   permissions:
-    pull-requests: write
     contents: write
+    pull-requests: write
 peaceiris/actions-gh-pages:
   permissions:
     contents: write
@@ -689,8 +821,8 @@ peter-evans/repository-dispatch:
   permissions: {}
 peter-evans/slash-command-dispatch:
   permissions:
-    pull-requests: write
     issues: write
+    pull-requests: write
 pmd/pmd-github-action:
   permissions:
     contents: read
@@ -713,12 +845,14 @@ preactjs/compressed-size-action:
     pull-requests: write
 prisma-cloud-shiftleft/iac-scan-action:
   permissions:
-    pull-requests: write
     checks: write
     issues: write
+    pull-requests: write
 pullreminders/slack-action:
   permissions: {}
 pypa/gh-action-pypi-publish:
+  permissions: {}
+r-lib/actions/setup-r:
   permissions: {}
 ramsey/composer-install:
   permissions: {}
@@ -741,8 +875,8 @@ reitermarkus/rerun-workflow:
   permissions: {}
 release-drafter/release-drafter:
   permissions:
-    pull-requests: write
     contents: write
+    pull-requests: write
 relekang/python-semantic-release:
   permissions:
     contents: write
@@ -836,6 +970,18 @@ skx/github-action-publish-binaries:
     actions: write
 slackapi/slack-github-action:
   permissions: {}
+snyk/actions/docker:
+  permissions: {}
+snyk/actions/golang:
+  permissions: {}
+snyk/actions/iac:
+  permissions: {}
+snyk/actions/node:
+  permissions: {}
+snyk/actions/python-3.8:
+  permissions: {}
+snyk/actions/ruby:
+  permissions: {}
 softprops/action-gh-release:
   permissions:
     contents: write
@@ -921,8 +1067,8 @@ tiryoh/gha-jobid-action:
     actions: read
 tommykw/pull-request-reviewer-reminder-action:
   permissions:
-    pull-requests: read
     issues: write
+    pull-requests: read
 tomwillis608/detect-secrets-action:
   permissions: {}
 tonybaloney/pycharm-security:
@@ -980,149 +1126,3 @@ zeebe-io/backport-action:
     pull-requests: write
 zricethezav/gitleaks-action:
   permissions: {}
-babel/actions/create-comment:
-  permissions:
-    issues: write
-babel/actions/generate-lerna-changelog:
-  permissions: {}
-babel/actions/get-release-tags:
-  permissions: {}
-babel/actions/is-org-member:
-  permissions: {}
-babel/actions/publish-github-release:
-  permissions:
-    contents: write
-babel/actions/ref-matches-branch:
-  permissions: {}
-babel/actions/update-changelog:
-  permissions: {}
-datadog/action-prebuildify/prebuild:
-  permissions: {}
-datadog/action-prebuildify/test:
-  permissions: {}
-elstudio/actions-js-build/build:
-  permissions: {}
-elstudio/actions-js-build/commit:
-  permissions:
-    contents: write
-enricomi/publish-unit-test-result-action/composite:
-  permissions:
-    contents: read
-    issues: read
-    checks: write
-    pull-requests: write
-github/codeql-action/analyze:
-  permissions:
-    security-events: write
-github/codeql-action/autobuild:
-  permissions:
-    security-events: write
-github/codeql-action/init:
-  permissions:
-    actions: read
-github/codeql-action/upload-sarif:
-  permissions:
-    security-events: write
-github/super-linter/slim:
-  permissions:
-    statuses: write
-gradle/build-tool-issue-automation-actions/add-labeled-issues:
-  permissions: {}
-haskell/actions/setup:
-  permissions: {}
-homebrew/actions/bump-formulae:
-  permissions: {}
-homebrew/actions/check-commit-format:
-  permissions:
-    contents: read
-    pull-requests: write
-    statuses: write
-homebrew/actions/create-gcloud-instance:
-  permissions: {}
-homebrew/actions/dismiss-approvals:
-  permissions:
-    pull-requests: write
-homebrew/actions/git-try-push:
-  permissions:
-    contents: write
-homebrew/actions/git-user-config:
-  permissions: {}
-homebrew/actions/label-pull-requests:
-  permissions:
-    contents: read
-    pull-requests: write
-homebrew/actions/post-comment:
-  permissions:
-    issues: write
-    pull-requests: write
-homebrew/actions/remove-disabled-formulae:
-  permissions: {}
-homebrew/actions/setup-commit-signing:
-  permissions: {}
-homebrew/actions/setup-homebrew:
-  permissions: {}
-homebrew/actions/wait-for-idle-runner:
-  permissions: {}
-ljharb/actions-js-build/commit:
-  permissions:
-    contents: write
-r-lib/actions/setup-r:
-  permissions: {}
-snyk/actions/docker:
-  permissions: {}
-snyk/actions/golang:
-  permissions: {}
-snyk/actions/iac:
-  permissions: {}
-snyk/actions/node:
-  permissions: {}
-snyk/actions/python-3.8:
-  permissions: {}
-snyk/actions/ruby:
-  permissions: {}
-angular/dev-infra/github-actions/commit-message-based-labels:
-  permissions: {}
-angular/dev-infra/github-actions/feature-request:
-  permissions: {}
-angular/dev-infra/github-actions/lock-closed:
-  permissions: {}
-datadog/action-prebuildify/node/12:
-  permissions: {}
-datadog/action-prebuildify/node/14:
-  permissions: {}
-datadog/action-prebuildify/node/16:
-  permissions: {}
-datadog/action-prebuildify/node/18:
-  permissions: {}
-google/clusterfuzzlite/actions/build_fuzzers:
-  permissions:
-    actions: read
-    contents: read
-google/clusterfuzzlite/actions/run_fuzzers:
-  permissions:
-    actions: read
-    contents: read
-home-assistant/actions/helpers/cas:
-  permissions: {}
-home-assistant/actions/helpers/codenotary:
-  permissions: {}
-home-assistant/actions/helpers/git-init:
-  permissions: {}
-home-assistant/actions/helpers/info:
-  permissions: {}
-home-assistant/actions/helpers/verify-version:
-  permissions: {}
-home-assistant/actions/helpers/version:
-  permissions: {}
-home-assistant/actions/helpers/version-push:
-  permissions: {}
-ljharb/actions/node/install:
-  permissions: {}
-ljharb/actions/node/matrix:
-  permissions: {}
-google/oss-fuzz/infra/cifuzz/actions/build_fuzzers:
-  permissions: {}
-google/oss-fuzz/infra/cifuzz/actions/run_fuzzers:
-  permissions:
-    actions: read
-    contents: read
