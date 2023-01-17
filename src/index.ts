@@ -190,7 +190,7 @@ export const computePermissions = async (
     // if found unknown actions, return default permissions
     if (knownPermissions.length !== usesActions.length) {
         if (options.verbose) {
-            const unknownActionNames = knownPermissions
+            const unknownActionNames = usesActions
                 .filter(([name]) => {
                     return !Object.prototype.hasOwnProperty.call(definitions, name);
                 })
