@@ -232,7 +232,7 @@ export const updateGitHubActions = async (
         );
     }
     if (options.verbose) {
-        console.info("process: " + options.filePath);
+        console.info("\nprocess: " + options.filePath);
     }
     const content = yaml.parse(yamlContent) satisfies GitHubActionSchema;
     if (hasPermissions(content)) {
@@ -245,9 +245,11 @@ export const updateGitHubActions = async (
     if (options.verbose) {
         console.info("requires permissions: ");
         console.info(
-            yaml.stringify({
-                permissions: requiresPermissions
-            })
+            yaml
+                .stringify({
+                    permissions: requiresPermissions
+                })
+                .trimEnd()
         );
     }
     return insertPermissions(yamlContent, requiresPermissions);
