@@ -190,7 +190,7 @@ export const computePermissions = async (
     // if found unknown actions, return default permissions
     if (knownPermissions.length !== usesActions.length) {
         if (options.verbose) {
-            const unknownActionNames = knownPermissions
+            const unknownActionNames = usesActions
                 .filter(([name]) => {
                     return !Object.prototype.hasOwnProperty.call(definitions, name);
                 })
@@ -232,7 +232,7 @@ export const updateGitHubActions = async (
         );
     }
     if (options.verbose) {
-        console.info("process: " + options.filePath);
+        console.info("\nprocess: " + options.filePath);
     }
     const content = yaml.parse(yamlContent) satisfies GitHubActionSchema;
     if (hasPermissions(content)) {
@@ -245,9 +245,11 @@ export const updateGitHubActions = async (
     if (options.verbose) {
         console.info("requires permissions: ");
         console.info(
-            yaml.stringify({
-                permissions: requiresPermissions
-            })
+            yaml
+                .stringify({
+                    permissions: requiresPermissions
+                })
+                .trimEnd()
         );
     }
     return insertPermissions(yamlContent, requiresPermissions);
