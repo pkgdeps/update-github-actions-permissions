@@ -62,6 +62,10 @@ actions-rs/toolchain:
   permissions: {}
 actions/cache:
   permissions: {}
+actions/cache/restore:
+  permissions: {}
+actions/cache/save:
+  permissions: {}
 actions/checkout:
   permissions:
     contents: read
@@ -123,6 +127,8 @@ akaihola/bandit-report-artifacts:
     checks: write
 akhileshns/heroku-deploy:
   permissions: {}
+al-cheb/configure-pagefile-action:
+  permissions: {}
 aliyun/ack-set-context:
   permissions: {}
 aliyun/acr-login:
@@ -137,6 +143,8 @@ anchore/sbom-action:
   permissions:
     actions: write
     contents: write
+anchore/sbom-action/download-syft:
+  permissions: {}
 anchore/scan-action:
   permissions: {}
 android-actions/setup-android:
@@ -236,9 +244,6 @@ bahmutov/npm-install:
   permissions: {}
 balchua/microk8s-actions:
   permissions: {}
-bflad/pr-size-labeler:
-  permissions:
-    pull-requests: write
 boostsecurityio/boostsec-scanner-github:
   permissions: {}
 borales/actions-yarn:
@@ -261,6 +266,8 @@ cachix/install-nix-action:
 canonical/has-signed-canonical-cla:
   permissions:
     pull-requests: write
+carlosperate/download-file-action:
+  permissions: {}
 ceph/ceph-pr-checklist-action:
   permissions: {}
 checkmarx-ts/checkmarx-cxflow-github-action:
@@ -459,6 +466,8 @@ gaurav-nelson/github-action-markdown-link-check:
   permissions: {}
 geekyeggo/delete-artifact:
   permissions: {}
+giantswarm/install-binary-action:
+  permissions: {}
 github/codeql-action/analyze:
   permissions:
     security-events: write
@@ -630,6 +639,8 @@ ilammy/setup-nasm:
   permissions: {}
 ilshidur/action-slack:
   permissions: {}
+ilteoood/docker_buildx:
+  permissions: {}
 infracost/actions:
   permissions:
     pull-requests: write
@@ -728,6 +739,10 @@ master-atul/tar-action:
 mathieudutour/github-tag-action:
   permissions:
     contents: write
+matrix-org/done-action:
+  permissions: {}
+matrix-org/setup-python-poetry:
+  permissions: {}
 mattnotmitt/doxygen-action:
   permissions: {}
 mcbeet/check-commands:
@@ -763,6 +778,8 @@ msys2/setup-msys2:
 mszostok/codeowners-validator:
   permissions: {}
 mxschmitt/action-tmate:
+  permissions: {}
+myci-actions/add-deb-repo:
   permissions: {}
 n1hility/cancel-previous-runs:
   permissions:
@@ -827,6 +844,8 @@ pmd/pmd-github-action:
   permissions:
     contents: read
     pull-requests: read
+pnpm/action-setup:
+  permissions: {}
 potatoqualitee/psmodulecache:
   permissions: {}
 potiuk/cancel-workflow-runs:
@@ -848,6 +867,8 @@ prisma-cloud-shiftleft/iac-scan-action:
     checks: write
     issues: write
     pull-requests: write
+protocol/multiple-go-modules:
+  permissions: {}
 pullreminders/slack-action:
   permissions: {}
 pypa/gh-action-pypi-publish:
@@ -936,6 +957,8 @@ samuelmeuli/action-electron-builder:
     contents: write
 samuelmeuli/action-snapcraft:
   permissions: {}
+sap/project-piper-action:
+  permissions: {}
 satackey/action-docker-layer-caching:
   permissions: {}
 scacap/action-surefire-report:
@@ -969,6 +992,8 @@ skx/github-action-publish-binaries:
   permissions:
     actions: write
 slackapi/slack-github-action:
+  permissions: {}
+snok/install-poetry:
   permissions: {}
 snyk/actions/docker:
   permissions: {}
@@ -1041,6 +1066,8 @@ technote-space/get-diff-action:
   permissions:
     pull-requests: read
 tencentcloud/tke-cluster-credential-action:
+  permissions: {}
+test-summary/action:
   permissions: {}
 tfsec/tfsec-sarif-action:
   permissions: {}
@@ -1117,6 +1144,8 @@ wei/wget:
 wiremind/helm-kubeval-action:
   permissions: {}
 wjdp/htmltest-action:
+  permissions: {}
+xt0rted/dotnet-format-problem-matcher:
   permissions: {}
 xt0rted/dotnet-sdk-updater:
   permissions: {}

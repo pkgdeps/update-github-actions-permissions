@@ -6,6 +6,7 @@ import * as globby from "globby";
 import yaml from "yaml";
 import type { GhPermissions, GhPermissionsDefinition, GhPermissionTypes } from "../src/types.js";
 import url from "node:url";
+
 const __filename__ = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename__);
 
@@ -62,6 +63,7 @@ const parsePermission = (actionContentYaml: string, filePath: string): GhPermiss
 };
 const pullSecureWorkflows = async () => {
     const workingDirectory = path.join(os.tmpdir(), "secure-workflows");
+    console.log("Working directory:", workingDirectory);
     const hasDir = await existDirectory(workingDirectory);
     if (hasDir) {
         console.log("Already cloned: " + workingDirectory);
@@ -71,7 +73,15 @@ const pullSecureWorkflows = async () => {
             recursive: true
         });
         // git clone to tmpdir
-        await child_process.execFile("git", ["clone", "--depth", "1", REPOSITORY, workingDirectory]);
+        await new Promise<void>((resolve, reject) => {
+            child_process.execFile("git", ["clone", "--depth", "1", REPOSITORY, workingDirectory], (error) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve();
+                }
+            });
+        });
     }
     // find knowledge-base/actions/<action-name>/action-security.yml
     const files = await globby.globby([`${workingDirectory}/knowledge-base/actions/**/action-security.yml`]);
