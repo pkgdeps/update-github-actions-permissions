@@ -9,7 +9,7 @@ Update GitHub Actions&#39;s `permissions` automatically.
 ## Features
 
 - Detect using Actions and add `permissions` field to your action yaml file
-- Support [40+ GitHub Actions](./actions.yml)
+- Support [50+ GitHub Actions](./actions.yml) + 450+(Third Party Resources)
 
 ## Install
 
