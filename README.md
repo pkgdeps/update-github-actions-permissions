@@ -38,7 +38,7 @@ or Install and Run via `npx` command:
       $ update-github-actions-permissions ".github/workflows/test.yml" ".github/workflows/publish.yml" 
       $ update-github-actions-permissions ".github/workflows/*.{yml,yaml}"
 
-## Add new Actions
+## Add New Actions
 
 This tool manage `permissions` in [actions.yml](./actions.yml).
 
@@ -47,9 +47,50 @@ If you want to improve the `permissions` definitions, please edit [actions.yml](
 1. Edit [actions.yml](./actions.yml)
 2. Submit a Pull Request
 
+
 📝 This tool includes [step-security/secure-workflows](https://github.com/step-security/secure-workflows) definitions.
 If same action is defined in both, this tool prefer to use  [actions.yml](./actions.yml).
 This order can be changed via `--use-rule-definitions` flag.
+
+### `permissions` examples
+
+No require any permissions:
+
+```yaml
+actions/setup-node:
+```
+
+Read Content permissions:
+
+```yaml
+actions/checkout:
+  permissions:
+    contents: read
+```
+
+Issue/Pull Request comments permissions:
+
+
+```yaml
+actions/stale:
+  permissions:
+    issues: write
+    pull-requests: write
+```
+
+Update content and create Pull Request permissions:
+
+```yaml
+peter-evans/create-pull-request:
+  permissions:
+    contents: write
+    pull-requests: write
+```
+
+**References**
+
+- [Automatic token authentication - GitHub Docs](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)
+- [Permissions required for GitHub Apps - GitHub Docs](https://docs.github.com/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28)
 
 ## Detection logics
 
