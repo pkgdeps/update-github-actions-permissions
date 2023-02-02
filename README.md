@@ -61,6 +61,11 @@ This order can be changed via `--use-rule-definitions` flag.
     - :memo: `NODE_AUTH_TOKEN` is special pattern. Current treats it as `contents: read` and `packages: write`.
 - Else, put `permission: <combined permissions>` to workflow file.
 
+## References
+
+- 2023-02-03: GitHub change default permission to `contents: read`
+    - [GitHub Actions - Updating the default GITHUB_TOKEN permissions to read-only | GitHub Changelog](https://github.blog/changelog/2023-02-02-github-actions-updating-the-default-github_token-permissions-to-read-only/)
+
 ## Changelog
 
 See [Releases page](https://github.com/pkgdeps/update-github-actions-permissions/releases).
