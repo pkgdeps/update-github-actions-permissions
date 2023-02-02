@@ -170,3 +170,7 @@ mtfoley/pr-compliance-action:
 k-phoen/semver-release-action:
   permissions:
     contents: write
+calibreapp/image-actions:
+  permissions:
+    contents: write
+    pull-requests: write
