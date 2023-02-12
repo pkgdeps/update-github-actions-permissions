@@ -30,7 +30,7 @@ or Install and Run via `npx` command:
     Options
       --defaultPermissions                [String] "write-all" or "read-all". Default: "write-all"
       --verbose                           [Boolean] If enable verbose, output debug info.
-      --use-rule-definitions              [String[]] Use rule definitions. Default: ["default", "secure-workflows"]
+      --use-rule-definitions              [String[]] Use rule definitions. Default: ["default", "step-security"]
  
     Examples
       $ update-github-actions-permissions ".github/workflows/test.yml"
@@ -48,7 +48,7 @@ If you want to improve the `permissions` definitions, please edit [actions.yml](
 2. Submit a Pull Request
 
 
-📝 This tool includes [step-security/secure-workflows](https://github.com/step-security/secure-workflows) definitions.
+📝 This tool includes [step-security/secure-repo](https://github.com/step-security/secure-repo) definitions.
 If same action is defined in both, this tool prefer to use  [actions.yml](./actions.yml).
 This order can be changed via `--use-rule-definitions` flag.
 
@@ -137,9 +137,9 @@ requests, [please create an issue](https://github.com/pkgdeps/update-github-acti
 ## License
 
 This package is licensed under the AGPL(GNU Affero General Public License) v3.0.
-Because this package includes AGPL-licensed [third-party](third-party/) resources like [step-security/secure-workflows](https://github.com/step-security/secure-workflows).
+Because this package includes AGPL-licensed [third-party](third-party/) resources like [step-security/secure-repo](https://github.com/step-security/secure-repo).
 
-- [secure-workflows.yml](third-party/secure-workflows.yml): AGPL v3.0 ©️ [step-security/secure-workflows](https://github.com/step-security/secure-workflows)
+- [step-security.yml](third-party/step-security.yml): AGPL v3.0 ©️ [step-security/secure-repo](https://github.com/step-security/secure-repo)
 
 However, Next files are available under the [MIT license](./LICENSE-MIT):
 
@@ -152,4 +152,4 @@ However, Next files are available under the [MIT license](./LICENSE-MIT):
 
 ## Related
 
-- [step-security/secure-workflows: Secure GitHub Actions CI/CD workflows via automated remediations](https://github.com/step-security/secure-workflows)
+- [step-security/secure-repo: Secure GitHub Actions CI/CD workflows via automated remediations](https://github.com/step-security/secure-repo)

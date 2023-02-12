@@ -19,11 +19,11 @@ export type UpdateGitHubActionsOptions = {
     verbose: boolean;
     // Apply the default permission when can not detect permissions
     defaultPermissions: "read-all" | "write-all";
-    useRuleDefinitions: ("default" | "secure-workflows")[];
+    useRuleDefinitions: ("default" | "step-security")[];
 };
 const SupportedRuleDefinitionPathList = {
     default: path.join(__dirname, "../actions.yml"),
-    "secure-workflows": path.join(__dirname, "../third-party/secure-workflows.yml")
+    "step-security": path.join(__dirname, "../third-party/step-security.yml")
 };
 
 const mergedDefinition = (definitions: GhPermissionsDefinitions[]) => {

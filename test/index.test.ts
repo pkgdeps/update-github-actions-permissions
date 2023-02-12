@@ -18,10 +18,10 @@ describe("Snapshot testing", () => {
             const actualOptionFilePath = path.join(fixtureDir, "options.json");
             const actualOptions: UpdateGitHubActionsOptions = fs.existsSync(actualOptionFilePath)
                 ? {
-                      useRuleDefinitions: ["default", "secure-workflows"],
+                      useRuleDefinitions: ["default", "step-security"],
                       ...JSON.parse(fs.readFileSync(actualOptionFilePath, "utf-8"))
                   }
-                : { defaultPermissions: "write-all", useRuleDefinitions: ["default", "secure-workflows"] };
+                : { defaultPermissions: "write-all", useRuleDefinitions: ["default", "step-security"] };
             const actual = await updateGitHubActions(actualContent, actualOptions);
             const expectedFilePath = path.join(fixtureDir, "output.yml");
             // Usage: update snapshots
