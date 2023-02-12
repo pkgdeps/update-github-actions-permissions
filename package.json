@@ -1,6 +1,6 @@
 {
   "name": "@pkgdeps/update-github-actions-permissions",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Update GitHub Actions's `permissions` automatically.",
   "keywords": [
     "github",

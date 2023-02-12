@@ -60,6 +60,9 @@ actions-rs/cargo:
   permissions: {}
 actions-rs/toolchain:
   permissions: {}
+actions/add-to-project:
+  permissions:
+    repository-projects: write
 actions/cache:
   permissions: {}
 actions/cache/restore:
@@ -72,6 +75,9 @@ actions/checkout:
 actions/create-release:
   permissions:
     contents: write
+actions/delete-package-versions:
+  permissions:
+    packages: write
 actions/download-artifact:
   permissions: {}
 actions/first-interaction:
@@ -172,6 +178,8 @@ appleboy/lambda-action:
   permissions: {}
 aquasecurity/trivy-action:
   permissions: {}
+arduino/setup-protoc:
+  permissions: {}
 arduino/setup-task:
   permissions: {}
 articulate/actions-markdownlint:
@@ -270,6 +278,10 @@ carlosperate/download-file-action:
   permissions: {}
 ceph/ceph-pr-checklist-action:
   permissions: {}
+changesets/action:
+  permissions:
+    contents: write
+    pull-requests: write
 checkmarx-ts/checkmarx-cxflow-github-action:
   permissions:
     issues: write
@@ -305,6 +317,9 @@ codesee-io/codesee-detect-languages-action:
   permissions: {}
 codespell-project/actions-codespell:
   permissions: {}
+codfish/semantic-release-action:
+  permissions:
+    contents: write
 comunidadaylas/packsquash-action:
   permissions:
     actions: read
@@ -651,6 +666,8 @@ irongut/codecoveragesummary:
 irongut/editrelease:
   permissions:
     contents: write
+isbang/setup-awscli:
+  permissions: {}
 iyu/actions-milestone:
   permissions:
     pull-requests: write
@@ -810,6 +827,8 @@ pascalgn/automerge-action:
 peaceiris/actions-gh-pages:
   permissions:
     contents: write
+peaceiris/actions-mdbook:
+  permissions: {}
 perl-actions/install-with-cpanm:
   permissions: {}
 peter-evans/close-issue:
@@ -948,6 +967,8 @@ rokroskar/workflow-run-cleanup-action:
   permissions:
     actions: write
     contents: read
+roryprimrose/set-vs-sdk-project-version:
+  permissions: {}
 rtcamp/action-slack-notify:
   permissions: {}
 ruby/setup-ruby:
@@ -1031,6 +1052,8 @@ stefanzweifel/git-auto-commit-action:
 stelligent/cfn_nag:
   permissions: {}
 step-security/harden-runner:
+  permissions: {}
+step-security/wait-for-secrets:
   permissions: {}
 streetsidesoftware/cspell-action:
   permissions:
