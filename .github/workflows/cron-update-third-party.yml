@@ -38,7 +38,7 @@ jobs:
           body: |
             New resources
             
-            - [step-security/secure-workflows](https://github.com/step-security/secure-workflows)
+            - [step-security/secure-repo](https://github.com/step-security/secure-repo)
           labels: "Type: dependencies"
           assignees: azu
           reviewers: azu

@@ -11,7 +11,7 @@ export const cli = meow(
     Options
       --defaultPermissions                [String] "write-all" or "read-all". Default: "write-all"
       --verbose                           [Boolean] If enable verbose, output debug info.
-      --use-rule-definitions              [String[]] Use rule definitions. Default: ["default", "secure-workflows"]
+      --use-rule-definitions              [String[]] Use rule definitions. Default: ["default", "step-security"]
  
     Examples
       $ update-github-actions-permissions ".github/workflows/test.yml"
@@ -57,7 +57,7 @@ export const run = async (
     const useRuleDefinitions = (
         flags.useRuleDefinitions && flags.useRuleDefinitions.length > 0
             ? flags.useRuleDefinitions
-            : ["default", "secure-workflows"]
+            : ["default", "step-security"]
     ) as UpdateGitHubActionsOptions["useRuleDefinitions"];
     if (flags.verbose) {
         console.info("useRuleDefinitions: " + useRuleDefinitions.join(", "));
