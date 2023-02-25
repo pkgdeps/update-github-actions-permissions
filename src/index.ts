@@ -72,6 +72,9 @@ type GitHubActionSchema = {
 type GitHubActionUses = [name: string, version: string];
 export const collectUsesActions = (action: GitHubActionSchema): GitHubActionUses[] => {
     return Object.values(action.jobs ?? {}).flatMap((job) => {
+        if (!job.steps) {
+            return [];
+        }
         return job.steps
             .filter((step) => {
                 return step.uses !== undefined;
@@ -146,6 +149,9 @@ const secretGITHUB_TOKEN = /\${{\s*secrets.GITHUB_TOKEN\s*}}/;
 type EnvEntry = [envName: string, envValue: string];
 const getSecretEnvEntries = (content: GitHubActionSchema): EnvEntry[] => {
     return Object.values(content.jobs ?? {}).flatMap((job) => {
+        if (!job.steps) {
+            return [];
+        }
         return job.steps.flatMap((step) => {
             if (!step.env) {
                 return [];
@@ -187,6 +193,9 @@ export const computePermissions = async (
     const knownPermissions = usesActions.filter(([name]) => {
         return Object.prototype.hasOwnProperty.call(definitions, name);
     });
+    if (usesActions.length === 0) {
+        return options.defaultPermissions;
+    }
     // if found unknown actions, return default permissions
     if (knownPermissions.length !== usesActions.length) {
         if (options.verbose) {
