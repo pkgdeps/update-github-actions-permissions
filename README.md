@@ -23,12 +23,12 @@ or Install and Run via `npx` command:
 
 ## Usage
 
-
     Usage
       $ update-github-actions-permissions "[file|glob]"
  
     Options
-      --defaultPermissions                [String] "write-all" or "read-all". Default: "write-all"
+      --defaultPermissions                [String] "write-all" or "read-all" or "{}". Default: "write-all"
+                                          https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs
       --verbose                           [Boolean] If enable verbose, output debug info.
       --use-rule-definitions              [String[]] Use rule definitions. Default: ["default", "step-security"]
  
@@ -37,6 +37,7 @@ or Install and Run via `npx` command:
       # multiple inputs
       $ update-github-actions-permissions ".github/workflows/test.yml" ".github/workflows/publish.yml" 
       $ update-github-actions-permissions ".github/workflows/*.{yml,yaml}"
+
 
 ## Add New Actions
 

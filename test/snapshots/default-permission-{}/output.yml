@@ -1,0 +1,10 @@
+name: Build books
+
+on:
+  push:
+
+permissions: {}
+jobs:
+  build:
+    if: ${{ startsWith(github.head_ref, 'release/') }}
+    uses: ./.github/workflows/reusable-build.yml

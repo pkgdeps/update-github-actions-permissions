@@ -9,7 +9,8 @@ export const cli = meow(
       $ update-github-actions-permissions "[file|glob]"
  
     Options
-      --defaultPermissions                [String] "write-all" or "read-all". Default: "write-all"
+      --defaultPermissions                [String] "write-all" or "read-all" or "{}". Default: "write-all"
+                                          https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs
       --verbose                           [Boolean] If enable verbose, output debug info.
       --use-rule-definitions              [String[]] Use rule definitions. Default: ["default", "step-security"]
  
@@ -40,8 +41,8 @@ export const cli = meow(
     }
 );
 
-const defaultPermissions = (permission: string): "write-all" | "read-all" => {
-    if (permission === "write-all" || permission === "read-all") {
+const defaultPermissions = (permission: string): "write-all" | "read-all" | "{}" => {
+    if (permission === "write-all" || permission === "read-all" || permission === "{}") {
         return permission;
     }
     throw new Error(`Unknown permissions: ${permission}`);
