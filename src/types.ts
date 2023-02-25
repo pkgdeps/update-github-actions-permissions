@@ -14,7 +14,8 @@ export type GhPermissionTypes = {
     pages?: GhPermissionValue;
     discussions?: GhPermissionValue;
 };
-export type GhPermissions = "read-all" | "write-all" | GhPermissionTypes;
+// https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs
+export type GhPermissions = "read-all" | "write-all" | "{}" | GhPermissionTypes;
 export type GhPermissionsDefinition = {
     permissions: GhPermissions;
 };

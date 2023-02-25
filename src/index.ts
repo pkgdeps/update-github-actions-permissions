@@ -18,7 +18,7 @@ export type UpdateGitHubActionsOptions = {
     filePath: string;
     verbose: boolean;
     // Apply the default permission when can not detect permissions
-    defaultPermissions: "read-all" | "write-all";
+    defaultPermissions: "read-all" | "write-all" | "{}";
     useRuleDefinitions: ("default" | "step-security")[];
 };
 const SupportedRuleDefinitionPathList = {
@@ -127,9 +127,15 @@ export const insertPermissions = (yamlString: YAMLString, permissions: GhPermiss
             if (pair.key.value === "jobs") {
                 // @ts-ignore
                 const startIndex: number = pair.key.range[0];
-                const permissionString = yaml.stringify({
-                    permissions
-                });
+                // {} is not string, use plain {}
+                const permissionString =
+                    permissions === "{}"
+                        ? yaml.stringify({
+                              permissions: {}
+                          })
+                        : yaml.stringify({
+                              permissions
+                          });
                 result = result.slice(0, startIndex) + `${permissionString}` + result.slice(startIndex);
                 stop = true;
             }
