@@ -78,6 +78,9 @@ actions/create-release:
 actions/delete-package-versions:
   permissions:
     packages: write
+actions/dependency-review-action:
+  permissions:
+    pull-requests: write
 actions/download-artifact:
   permissions: {}
 actions/first-interaction:
@@ -475,6 +478,8 @@ fountainhead/action-wait-for-check:
     checks: read
 franzdiebold/github-env-vars-action:
   permissions: {}
+gabrielbb/xvfb-action:
+  permissions: {}
 gabrielfalcao/pyenv-action:
   permissions: {}
 gaurav-nelson/github-action-markdown-link-check:
@@ -737,6 +742,8 @@ ljharb/require-allow-edits:
     pull-requests: read
 ludeeus/action-shellcheck:
   permissions: {}
+lukka/run-cmake:
+  permissions: {}
 lukka/run-vcpkg:
   permissions: {}
 lumaxis/shellcheck-problem-matchers:
@@ -973,6 +980,8 @@ rtcamp/action-slack-notify:
   permissions: {}
 ruby/setup-ruby:
   permissions: {}
+rustcrypto/actions/cargo-cache:
+  permissions: {}
 samuelmeuli/action-electron-builder:
   permissions:
     contents: write
@@ -1134,6 +1143,9 @@ tyankatsu0105/read-package-version-actions:
 tzkhan/pr-update-action:
   permissions:
     pull-requests: write
+uraimo/run-on-arch-action:
+  permissions:
+    packages: write
 vampire/setup-wsl:
   permissions: {}
 variant-inc/actions-octopus:
