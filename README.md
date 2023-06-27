@@ -8,6 +8,7 @@ Update GitHub Actions&#39;s `permissions` automatically.
 
 ## Features
 
+- Static Analytics
 - Detect using Actions and add `permissions` field to your action yaml file
 - Support 500+ GitHub Actions
 
@@ -111,6 +112,11 @@ peter-evans/create-pull-request:
 ## Changelog
 
 See [Releases page](https://github.com/pkgdeps/update-github-actions-permissions/releases).
+
+## Alternatives
+
+- [GitHubSecurityLab/actions-permissions: GitHub token permissions Monitor and Advisor actions](https://github.com/GitHubSecurityLab/actions-permissions)
+  - This Actions do dymamic analytics
 
 ## Running tests
 
