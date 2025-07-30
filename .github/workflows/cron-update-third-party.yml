@@ -13,16 +13,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: yarn install
+      - run: pnpm install
       - name: Try to update third-party
-        run: npm run update:third-party
+        run: pnpm run update:third-party
       - name: Tests
-        run: npm test
+        run: pnpm test
       - name: Update package version if has Change
-        run: git diff --exit-code || npm version minor --no-git-tag-version
+        run: git diff --exit-code || pnpm version minor --no-git-tag-version
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v3

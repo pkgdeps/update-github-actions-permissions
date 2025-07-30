@@ -28,6 +28,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
       - name: Set PACKAGE_VERSION
         run: echo "PACKAGE_VERSION=$(cat package.json | jq -r .version)" >> $GITHUB_ENV
       - name: Tag Check
@@ -60,7 +63,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          cache: 'yarn'
+          cache: 'pnpm'
           node-version: 18
           registry-url: https://registry.npmjs.org
       - name: Git Identity
@@ -73,11 +76,11 @@ jobs:
       - name: Set PACKAGE_VERSION
         run: echo "PACKAGE_VERSION=$(cat package.json | jq -r .version)" >> $GITHUB_ENV
       - name: Install
-        run: yarn install
+        run: pnpm install
       - name: Publish
-        run: npm run ci:release
+        run: pnpm run ci:release
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # npm token
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # pnpm token
       - name: Create Git Tag
         uses: pkgdeps/git-tag-action@v2
         with:
