@@ -12,20 +12,23 @@ jobs:
   createPullRequest:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+      - uses: actions/setup-node@3235b876344d2a9aa001b8d1453c930bba69e610 # v3.9.1
         with:
-          node-version: 18
-      - run: yarn install
+          node-version: 22
+      - run: pnpm install
       - name: Try to update third-party
-        run: npm run update:third-party
+        run: pnpm run update:third-party
       - name: Tests
-        run: npm test
+        run: pnpm test
       - name: Update package version if has Change
-        run: git diff --exit-code || npm version minor --no-git-tag-version
+        run: git diff --exit-code || pnpm version minor --no-git-tag-version
       - name: Create Pull Request
         id: cpr
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "feat!(deps): Update third-party"
