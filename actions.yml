@@ -27,6 +27,10 @@ amondnet/vercel-action:
 anothrNick/github-tag-action:
   permissions:
     contents: write
+aws-actions/aws-lambda-deploy:
+  permissions:
+    id-token: write
+    contents: read
 aws-actions/configure-aws-credentials:
   permissions:
     id-token: write
