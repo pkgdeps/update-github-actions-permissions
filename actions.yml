@@ -28,6 +28,8 @@ anothrNick/github-tag-action:
   permissions:
     contents: write
 aws-actions/configure-aws-credentials:
+  permissions:
+    id-token: write
 actions/github-script:
   permissions: write-all
 pascalgn/automerge-action:
