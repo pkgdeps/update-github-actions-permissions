@@ -5,7 +5,7 @@ permissions:
 jobs:
   test:
     name: "Test on Node.js ${{ matrix.node-version }}"
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 20, 22, 24 ]
