@@ -167,11 +167,9 @@ andymckay/labeler:
   permissions:
     issues: write
     pull-requests: write
-angular/dev-infra/github-actions/commit-message-based-labels:
-  permissions: {}
 angular/dev-infra/github-actions/feature-request:
   permissions: {}
-angular/dev-infra/github-actions/lock-closed:
+angular/dev-infra/github-actions/pull-request-labeling:
   permissions: {}
 apisec-inc/apisec-run-scan:
   permissions: {}
@@ -397,10 +395,6 @@ dessant/lock-threads:
 dev-drprasad/delete-tag-and-release:
   permissions:
     contents: write
-devbotsxyz/xcode-notarize:
-  permissions: {}
-devbotsxyz/xcode-staple:
-  permissions: {}
 devmasx/merge-branch:
   permissions:
     contents: write
@@ -634,7 +628,7 @@ homebrew/actions/post-comment:
   permissions:
     issues: write
     pull-requests: write
-homebrew/actions/remove-disabled-formulae:
+homebrew/actions/remove-disabled-packages:
   permissions: {}
 homebrew/actions/setup-commit-signing:
   permissions: {}
@@ -1128,8 +1122,6 @@ tommykw/pull-request-reviewer-reminder-action:
   permissions:
     issues: write
     pull-requests: read
-tomwillis608/detect-secrets-action:
-  permissions: {}
 tonybaloney/pycharm-security:
   permissions: {}
 treosh/lighthouse-ci-action:
