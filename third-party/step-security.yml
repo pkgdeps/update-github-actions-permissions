@@ -889,8 +889,6 @@ prisma-cloud-shiftleft/iac-scan-action:
     pull-requests: write
 protocol/multiple-go-modules:
   permissions: {}
-pullreminders/slack-action:
-  permissions: {}
 pypa/gh-action-pypi-publish:
   permissions: {}
 r-lib/actions/setup-r:
