@@ -585,10 +585,6 @@ hmarr/auto-approve-action:
     pull-requests: write
 hmarr/debug-action:
   permissions: {}
-home-assistant/actions/helpers/cas:
-  permissions: {}
-home-assistant/actions/helpers/codenotary:
-  permissions: {}
 home-assistant/actions/helpers/git-init:
   permissions: {}
 home-assistant/actions/helpers/info:
